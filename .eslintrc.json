@@ -5,8 +5,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended",
-        "stylelint-config-airbnb"
+        "plugin:react/recommended"
+       
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -19,5 +19,6 @@
         "react"
     ],
     "rules": {
+        "react/prop-types": 0
     }
 }
