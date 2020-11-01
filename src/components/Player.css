@@ -1,0 +1,20 @@
+.section {
+    display: flex;
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid red;
+}
+.player {
+
+}
+
+.player__control-section{
+
+}
+.player__play-btn {
+
+}
+
+.player__seeker {
+
+}
