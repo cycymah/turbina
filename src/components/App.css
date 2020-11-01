@@ -1,13 +1,29 @@
 .page {
-  display: flex;
-  width: 100%;
-  min-height: 600px;
+  font-family: "Inter","Arial",sans-serif;
+  /* display: flex;
+  flex-direction: column; */
+  min-height: 1000px;
   justify-content: center;
-  margin: 0 auto;
-  background-color: black;
+  background: url(../images/background-top.png) no-repeat center;
+  background-size: cover;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-attachment: fixed;
 }
 
 .page__title {
+  font-family: 'Inter';
   font-size: 3rem;
   color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .page {
+    background: url(../images/background-top.png) no-repeat;
+    background-size: none;
+  }
 }

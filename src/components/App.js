@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Header from './Header';
 
 function App() {
   return (
     <div className="page">
-      <h1 className="page__title">Тут будет проект</h1>
+      <Header />
     </div>
   );
 }
