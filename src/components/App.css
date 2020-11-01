@@ -1,9 +1,8 @@
 .page {
   font-family: "Inter","Arial",sans-serif;
-  /* display: flex;
-  flex-direction: column; */
+  display: flex;
+  flex-direction: column;
   min-height: 1000px;
-  justify-content: center;
   background: url(../images/background-top.png) no-repeat center;
   background-size: cover;
   -webkit-text-size-adjust: 100%;
@@ -23,7 +22,6 @@
 
 @media screen and (max-width: 700px) {
   .page {
-    background: url(../images/background-top.png) no-repeat;
-    background-size: none;
+    background-position: unset;
   }
 }
