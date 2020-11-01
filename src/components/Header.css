@@ -51,4 +51,7 @@
   .header__main-logo {
     width: 303px;
   }
+  .header {
+    min-height: 367px;
+  }
 }
