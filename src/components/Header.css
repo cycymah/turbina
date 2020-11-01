@@ -1,5 +1,7 @@
 .header {
   width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   min-height: 526px;
   display: flex;
   align-items: center;
@@ -15,7 +17,8 @@
 }
 
 .header__main-logo {
-  width: 861px;
+  max-width: 861px;
+  width: 100%;
   object-fit: contain;
   object-position: center;
 }
@@ -37,17 +40,15 @@
   opacity: 0.6;
 }
 .header__title-logo {
+  
   margin: 0;
 }
 
 @media screen and (max-width: 900px) {
-  .header__main-logo {
-    width: 600px;
-  }
   .header__logo-link {
     width: 32px;
     height: 32px;
-    margin: 11px 0 0 7px;
+    margin: 11px 0 0 12px;
   }
 }
 @media screen and (max-width: 640px) {
