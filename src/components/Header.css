@@ -40,7 +40,6 @@
   opacity: 0.6;
 }
 .header__title-logo {
-  
   margin: 0;
 }
 
@@ -55,6 +54,7 @@
   .header__main-logo {
     width: 303px;
   }
+
   .header {
     min-height: 367px;
   }
