@@ -12,8 +12,8 @@ const Player = () => {
           <input type="range" className="player__seeker"></input>
         </div>
       </div>
-      <audio controls>
-        <source src="../Float.mp3" type="audio/mpeg"></source>
+      <audio src="../Float.mp3" controls>
+        <source src="../Float.mp3" type="audio/mp3"></source>
       </audio>
     </section>
   );
