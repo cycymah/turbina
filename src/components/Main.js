@@ -5,7 +5,7 @@ const Main = () => {
   return (
     <main className="main">
       <section className="main__container-text">
-        <h2 className="main__title">О&nbsp;проекте</h2>
+        <h2 className="main__title">О&nbsp;ПРОЕКТЕ.</h2>
         <ul className="main__list">
           <li className="main__text">
             <p className="main__description">
@@ -20,7 +20,7 @@ const Main = () => {
               присмотреться к&nbsp;нашим детям.
             </p>
           </li>
-          <li className="main__text">
+          <li className="main__text main__text_margin_indent">
             <p className="main__description">
               Мы&nbsp;запускаем проект &laquo;ТУРБИНА&raquo;, который открывает
               работу настоящего музыкального лейбла на&nbsp;базе
@@ -38,7 +38,7 @@ const Main = () => {
             </p>
           </li>
         </ul>
-        <h2 className="main__title">Как это работает</h2>
+        <h2 className="main__title">КАК ЭТО РАБОТАЕТ?</h2>
         <p className="main__description">
           Вы&nbsp;можете прислать нам тексты, родившиеся у&nbsp;ваших детей,
           которые вы&nbsp;записали и&nbsp;считаете, что это сильное
@@ -48,29 +48,29 @@ const Main = () => {
           далее. Мы&nbsp;всегда указываем автора стихотворений внутри релиза:
           Хадн Дадн feat. Варя Карпова и&nbsp;Федя Быстров&nbsp;&mdash; Контур.
         </p>
-        <h2 className="main__title">Тезисы</h2>
+        <h2 className="main__title">ТЕЗИСЫ.</h2>
         <ul className="main__list">
           <li className="main__text">
             <p className="main__description">
-              &mdash;&nbsp;Дети никогда не&nbsp;прекращают творить и&nbsp;круто
+            &bull;&nbsp;Дети никогда не&nbsp;прекращают творить и&nbsp;круто
               стараться быть на&nbsp;них похожими в&nbsp;этом
             </p>
           </li>
           <li className="main__text">
             <p className="main__description">
-              &mdash;&nbsp;Детское бессознательное помогает родителям понять,
+            &bull;&nbsp;Детское бессознательное помогает родителям понять,
               что происходит внутри семьи
             </p>
           </li>
           <li className="main__text">
             <p className="main__description">
-              &mdash;&nbsp;Не&nbsp;существует детской и&nbsp;взрослой поэзии.
+            &bull;&nbsp;Не&nbsp;существует детской и&nbsp;взрослой поэзии.
               Существует мысль и&nbsp;чувство, зафиксированное в&nbsp;ней
             </p>
           </li>
           <li className="main__text">
             <p className="main__description">
-              &mdash;&nbsp;Дети получают невероятное удовольствие
+            &bull;&nbsp;Дети получают невероятное удовольствие
               и&nbsp;мотивацию от&nbsp;того, что их&nbsp;творчество востребовано
               сверстниками и&nbsp;взрослыми.
             </p>
