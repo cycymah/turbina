@@ -1,7 +1,7 @@
 import React from 'react';
 
-function LinkTab({ title, dim, pos, url, isActive }) {
-    const [shift, setShift]=React.useState(0);
+function LinkTab({ title,  pos, url, isActive }) {
+    const [shift, setShift]=React.useState(-60);
     const [isVisible, setIsVisible]=React.useState(0);
 
     React.useEffect(()=>{
@@ -9,7 +9,7 @@ function LinkTab({ title, dim, pos, url, isActive }) {
            setShift(pos);
            setIsVisible(1);
         }else {
-            setShift(0);
+            setShift(-60);
             setIsVisible(0);
 
        }
@@ -19,7 +19,7 @@ function LinkTab({ title, dim, pos, url, isActive }) {
         const shiftTrans = `translateY(${shift}px)`;
         const cssRules = {
             opacity: isVisible,
-            width: dim,
+            //width: dim,
             transform: shiftTrans,
             right: 20
         };
