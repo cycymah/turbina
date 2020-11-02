@@ -1,13 +1,18 @@
 import React from 'react';
 import './App.css';
+
 import DropLinks from './DropLinks';
+import Header from './Header';
+import Player from './Player';
+import Main from './Main'
 
 function App() {
   return (
     <div className="page">
-      <h1 className="page__title">
-        Тут будет проект</h1>
      <DropLinks/>
+      <Header />
+      <Player />
+      <Main />
     </div>
   );
 }
