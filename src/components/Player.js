@@ -1,8 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import './Player.css';
 import song from '../Float.mp3';
+
 const Player = () => {
   const [isSongPlay, setSongPlay] = useState(false);
+  const [songTime, setSongTime] = useState('');
 
   useEffect(() => {
     const audioFile = document.querySelector('.player__audio');
@@ -12,6 +15,12 @@ const Player = () => {
       audioFile.pause();
     }
   }, [isSongPlay]);
+
+  useEffect(() => {
+    // console.log(audioFile);
+    setSongTime(1);
+    // console.log(audioFile.duration);
+  }, [songTime]);
 
   const handlePlayCLick = () => {
     isSongPlay ? setSongPlay(false) : setSongPlay(true);
@@ -32,7 +41,7 @@ const Player = () => {
         }`}></button>
       <p className="player__song-info">Песня sdfsdf</p>
       <span className="player__song-time">2:30</span>
-      <input type="range" className="player__seeker"></input>
+      <input type="range" className="player__seeker" />
       <div className="player__songs-list"></div>
       <button type="button" className="player__control-btn"></button>
     </section>

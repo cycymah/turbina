@@ -22,6 +22,13 @@
   width: 32px;
   height: 28px;
   border: 0;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.player__play-btn:hover {
+  transition: 0.5s ease-in-out;
+  opacity: 0.6;
 }
 
 .player__play-btn_play {
@@ -40,7 +47,13 @@
   background: url('../images/player/arrow-up.svg') no-repeat;
   background-size: contain;
   background-position: center;
+  cursor: pointer;
   border: 0;
+}
+
+.player__control-btn:hover {
+  transition: 0.5s ease-in-out;
+  opacity: 0.6;
 }
 
 .player__song-info {
