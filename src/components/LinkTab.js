@@ -19,7 +19,6 @@ function LinkTab({ title,  pos, url, isActive }) {
         const shiftTrans = `translateY(${shift}px)`;
         const cssRules = {
             opacity: isVisible,
-            //width: dim,
             transform: shiftTrans,
             right: 20
         };
