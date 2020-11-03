@@ -5,6 +5,7 @@ import DropLinks from './DropLinks';
 import Header from './Header';
 import Player from './Player';
 import Main from './Main';
+import Footer from './Footer';
 
 function App() {
   const audioFile = document.querySelector('.player__audio');
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <Player audioFile={audioFile} />
       <Main />
+      <Footer />
     </div>
   );
 }
