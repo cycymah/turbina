@@ -1,8 +1,16 @@
 .dropLinks {
     position: absolute;
-    height: auto;
-    width: 100vw;
+    margin: 0;
+    height: 50vh;
+    width: 90vw;
     list-style: none;
-    top: 10px;
-    right: 11px;
+    top: 20px;
+    right: 20px;
+}
+
+@media(max-width:500px) {
+    .droplinks {
+        top: 10px;
+        right: 11px;
+    }
 }
