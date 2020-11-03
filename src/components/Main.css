@@ -3,6 +3,7 @@
     max-width: 1260px;
     background: #FFFFFF;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 8px;

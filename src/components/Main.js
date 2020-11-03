@@ -1,6 +1,8 @@
 import React from "react";
 import "./Main.css";
 
+import Form from './Form';
+
 const Main = () => {
   return (
     <main className="main">
@@ -77,6 +79,7 @@ const Main = () => {
           </li>
         </ul>
       </section>
+      <Form />
     </main>
   );
 };

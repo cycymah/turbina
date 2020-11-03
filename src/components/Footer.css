@@ -1,0 +1,36 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 15px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+@media screen and (max-width: 320px) {
+  .footer__container {
+    margin: 0 20px 0;
+  }
+}
+
+.footer__copyright {
+  font-size: 16px;
+  line-height: 1.37;
+  margin: 0;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 320px) {
+  .footer__copyright {
+    font-size: 12px;
+  }
+}
+
+.footer__link {
+  color: #ffffff;
+}
