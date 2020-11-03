@@ -2,11 +2,10 @@
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  min-height: 526px;
+  min-height: 503px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .header__content-container {
@@ -17,7 +16,7 @@
 }
 
 .header__main-logo {
-  max-width: 861px;
+  max-width: 720pxpx;
   width: 100%;
   object-fit: contain;
   object-position: center;
@@ -31,7 +30,7 @@
   background-position: center;
   background-size: contain;
   cursor: pointer;
-  margin: 15px 0 0 20px;
+  margin: 20px 0 0 20px;
   transition: 0.5s ease-in-out;
 }
 
