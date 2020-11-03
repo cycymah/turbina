@@ -45,6 +45,7 @@
   cursor: pointer;
   border: 0;
   transition: 0.5s ease-in-out;
+  
 }
 
 .player__control-btn_open {
