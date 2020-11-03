@@ -1,14 +1,14 @@
 .player {
   max-width: 1280px;
   width: 100%;
-  min-height: 200px;
-  margin: 210px auto 0;
+  margin: 200px auto 0;
   display: flex;
   color: white;
   font-style: normal;
   font-weight: 500;
   font-size: 22px;
   line-height: 26px;
+  transition: margin .4s;
 }
 
 .player__play-btn {
@@ -16,6 +16,7 @@
   height: 28px;
   margin:0px 20px 0 0;
   border: 0;
+  outline: none;
   cursor: pointer;
   transition: 0.5s ease-in-out;
 }
@@ -40,13 +41,26 @@
   width: 24px;
   height: 24px;
   margin-left: 20px;
-  background: url('../images/player/arrow-up.svg') no-repeat;
-  background-size: contain;
-  background-position: center;
+  outline: none;
   cursor: pointer;
   border: 0;
   transition: 0.5s ease-in-out;
+  
 }
+
+.player__control-btn_open {
+  background: url('../images/player/arrow-up.svg') no-repeat;
+  background-size: contain;
+  background-position: center;
+  
+}
+
+.player__control-btn_close {
+  background: url('../images/player/close-songlist.svg') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
 
 .player__control-btn:hover {
   transition: 0.5s ease-in-out;
@@ -93,8 +107,4 @@ margin-top: 5px;
   height: 3px;
 }
 
-.player__songs-list {
-  min-height: 100px;
-  margin-top: 10px;
-  border: 1px solid red;
-}
+
