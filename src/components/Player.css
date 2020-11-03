@@ -38,21 +38,20 @@
 }
 
 .player__control-btn {
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   margin-left: 20px;
   outline: none;
   cursor: pointer;
   border: 0;
   transition: 0.5s ease-in-out;
-  
 }
 
 .player__control-btn_open {
   background: url('../images/player/arrow-up.svg') no-repeat;
   background-size: contain;
   background-position: center;
-  
+
 }
 
 .player__control-btn_close {
@@ -66,6 +65,32 @@
   transition: 0.5s ease-in-out;
   opacity: 0.6;
 }
+
+.player__switch-btn {
+  width: 135px;
+  height: 35px;
+  border: 2px solid #FFFFFF;
+  color: white;
+  background-color: transparent;
+  border-radius: 30px;
+  margin-left: 20px;
+  font-family: Inter;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition: 0.5s ease-in-out;
+  animation: showButton .4s ease-in-out;
+}
+
+.player__switch-btn:hover {
+  transition: 0.5s ease-in-out;
+  opacity: 0.6;
+}
+
 .player__container {
   display: flex;
   flex-direction: column;
@@ -80,10 +105,6 @@
 
 .player__song-info {
   margin: 0;
-}
-
-.player__song-time {
-  
 }
 
 .player__range-box {
@@ -107,4 +128,20 @@ margin-top: 5px;
   height: 3px;
 }
 
+@keyframes showButton {
+  from {
+    opacity: 0;
+
+  } to {
+    opacity: 1;
+  }
+};
+
+@keyframes hideButton {
+  from {
+    opacity: 1;
+  } to {
+    opacity: 0;
+  }
+};
 

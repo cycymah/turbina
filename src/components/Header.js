@@ -12,7 +12,7 @@ const Header = () => {
       <h1 className="header__title-logo">
         <img src={logo} alt="Логотип Турбина" className="header__main-logo" />
       </h1>
-      <DropLinks/>
+      <DropLinks />
     </header>
   );
 };

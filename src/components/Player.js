@@ -1,8 +1,9 @@
 import React, { useState, useEffect, createRef } from 'react';
-import './Player.css';
-import song from '../Float.mp3';
 import useInterval from '@use-it/interval';
+import './Player.css';
 import PlayerMenu from './PlayerMenu';
+import song from '../Float.mp3';
+import songsList from '../constants/songsList';
 
 const Player = () => {
   const [isSongPlay, setSongPlay] = useState(false);
@@ -21,6 +22,7 @@ const Player = () => {
   // Задаем время в стейте
   useInterval(
     () => {
+      console.log(currentSongTime);
       setCurrentSongTime(audioElement.currentTime);
     },
     isSongPlay ? 500 : null
@@ -29,7 +31,7 @@ const Player = () => {
   // Меняем строку состояния и время в плеере
   const onTimeUpdateSongTime = () => {
     let songDuration =
-      Math.round(currentSongTime / 60) + ':' + Math.round(currentSongTime);
+      Math.floor(currentSongTime / 60) + ':' + Math.round(currentSongTime % 60);
     let seekerCoverLength = (currentSongTime * 100) / audioElement.duration;
     setSeekerCover(seekerCoverLength);
     setSongTime(songDuration);
@@ -37,6 +39,7 @@ const Player = () => {
 
   // Меняем стейт по щелчку на плей
   const handlePlayCLick = () => {
+    console.log(songsList.first.src);
     isSongPlay ? setSongPlay(false) : setSongPlay(true);
   };
 
@@ -55,7 +58,7 @@ const Player = () => {
         onTimeUpdate={onTimeUpdateSongTime}>
         Your browser does not support the
         <code>audio</code> element.
-        <source src={song} type="audio/mp3"></source>
+        <source src={song} type={songsList.first.type}></source>
       </audio>
       <button
         onClick={handlePlayCLick}
@@ -65,7 +68,7 @@ const Player = () => {
         }`}></button>
       <div className="player__container">
         <div className="player__info-box">
-          <p className="player__song-info">Песня sdfsdf</p>
+          <p className="player__song-info">{songsList.first.name}</p>
           <span className="player__song-time">{songTime ? songTime : ''}</span>
         </div>
         <div className="player__range-box">
@@ -75,9 +78,11 @@ const Player = () => {
               style={{ width: `${styleSeekerCover}%` }}></div>
           </div>
         </div>
-
-        <PlayerMenu isBoxOpen={isSongListOpen} />
+        <PlayerMenu isBoxOpen={isSongListOpen} songsList={songsList} />
       </div>
+      {isSongListOpen ? (
+        <button className="player__switch-btn">Текст</button>
+      ) : null}
       <button
         type="button"
         className={`player__control-btn ${
