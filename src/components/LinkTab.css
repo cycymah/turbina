@@ -1,0 +1,36 @@
+.linkTab {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 2.0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 1;
+    background-color: transparent;
+    color: white;
+    border-radius: 30px;
+    border: solid 2px white;
+    transition: transform .8s ease, opacity .4s ease;
+    height: 36px;
+    width: auto;
+    padding: 0 19px;
+}
+
+@media(max-width:500px) {
+    .linkTab {
+        padding: 0 11px;
+        height: 25px;
+        font-size: 12px;
+        line-height: 2.1;
+    }
+}
+
+.linkTab__link {
+    display: block;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
