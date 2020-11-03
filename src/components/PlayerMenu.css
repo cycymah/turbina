@@ -1,0 +1,53 @@
+
+
+.player__menu {
+  overflow-y: scroll;
+  /* overflow: hidden; */
+  height: 100px;
+  list-style: none;
+  padding: 0;
+  
+}
+
+.player__menu_show {
+animation: showBox .4s ease-in-out;
+height: 100px;
+transition: height .4s ease-in-out;
+}
+
+.player__menu_hide {
+  height: 0;
+  animation: hideBox .4s ease-in-out;
+  transition: height .4s ease-in-out;
+}
+.player__menu::-webkit-scrollbar-track {
+  border: 1px solid #000;
+  padding: 2px 0;
+  background-color: #404040;
+}
+
+.player__menu::-webkit-scrollbar {
+  width: 10px;
+}
+
+.player__menu::-webkit-scrollbar-thumb {
+  width: 35px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes showBox {
+  0% {
+    height: 0px;
+    transform:translateY()
+  } 100% {
+    height: 100px;
+  }
+};
+
+@keyframes hideBox {
+  from {
+    height: 100px;
+  } to {
+    height: 0px;
+  }
+};

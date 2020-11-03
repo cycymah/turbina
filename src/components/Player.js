@@ -46,7 +46,9 @@ const Player = () => {
   };
 
   return (
-    <section className="player">
+    <section
+      className="player"
+      style={{ margin: `${isSongListOpen ? '100px' : '200px'} auto 0` }}>
       <audio
         className="player__audio"
         ref={(audio) => (audioElement = audio)}
@@ -73,9 +75,8 @@ const Player = () => {
               style={{ width: `${styleSeekerCover}%` }}></div>
           </div>
         </div>
-        <div className="player__menu">
-          <PlayerMenu />
-        </div>
+
+        <PlayerMenu isBoxOpen={isSongListOpen} />
       </div>
       <button
         type="button"
