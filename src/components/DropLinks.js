@@ -29,13 +29,13 @@ function DropLinks() {
   };
 
   return (
-    <ul className="dropLinks">
+    <ul className="dropLinks" >
       {viewWidth < 500 &&
         (isOpened ? (
-          <LinkCloseButton onClick={handleCloseMenu}/>
+          <LinkCloseButton onClick={handleCloseMenu} />
         ) : (
-          <LinkHead title="Стриминги" onClick={handleOpenMenu} />
-        ))}
+            <LinkHead title="Стриминги" onClick={handleOpenMenu} />
+          ))}
 
       {linkTabData.map((item, idx) => {
         const position = viewWidth < 500 ? idx * 35 + 30 : 50 * idx;

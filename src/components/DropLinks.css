@@ -1,16 +1,20 @@
 .dropLinks {
-    position: absolute;
-    margin: 0;
-    height: 50vh;
-    width: 90vw;
-    list-style: none;
-    top: 20px;
-    right: 20px;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  background-color: transparent;
+  position: absolute;
+  margin: 0;
+  height: 50vh;
+  width: 90vw;
+  list-style: none;
+  top: 20px;
+  right: 20px;
 }
 
 @media(max-width:500px) {
-    .droplinks {
-        top: 10px;
-        right: 11px;
-    }
+  .droplinks {
+    top: 10px;
+    right: 11px;
+  }
 }

@@ -1,17 +1,12 @@
 .linkTab {
-  font-family: 'Inter';
-  font-weight: 400;
-  font-style: normal;
   font-size: 18px;
   line-height: 2.0;
   position: absolute;
   top: 0;
   right: 0;
   opacity: 1;
-  background-color: transparent;
-  color: white;
   border-radius: 30px;
-  border: solid 2px white;
+  border: solid 2px;
   transition: transform .8s ease, opacity .8s ease;
   height: 36px;
   width: auto;

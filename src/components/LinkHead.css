@@ -1,17 +1,12 @@
 .linkHead {
-  font-family: 'Inter';
-  font-weight: 400;
-  font-style: normal;
   font-size: 12px;
   line-height: 2.1;
   position: absolute;
   top: 0;
   right: 0;
   opacity: 0;
-  background-color: transparent;
-  color: white;
   border-radius: 30px;
-  border: solid 2px white;
+  border: solid 2px;
   transition: opacity 1.5s ease;
   height: 25px;
   width: auto;
