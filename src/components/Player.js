@@ -65,12 +65,16 @@ const Player = () => {
         <code>audio</code> element.
         <source src={song} type={songsList.first.type}></source>
       </audio>
+
+      {/* кнопка плей/пауза */}
       <button
         onClick={handlePlayCLick}
         type="button"
         className={`player__play-btn ${
           isSongPlay ? 'player__play-btn_pause' : 'player__play-btn_play'
         }`}></button>
+
+      {/* Контейнер с плеером */}
       <div className="player__container">
         <div className="player__info-box">
           <p className="player__song-info">{songsList.first.name}</p>
@@ -86,6 +90,7 @@ const Player = () => {
         <PlayerMenu isBoxOpen={isSongListOpen} toggleTextSongs={lyricSongs} />
       </div>
 
+      {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
       {isSongListOpen ? (
         <button
           className={`player__switch-btn ${
@@ -97,6 +102,8 @@ const Player = () => {
       ) : (
         <div className="player__close-box"></div>
       )}
+
+      {/* Кнопка для выплывания списка песен/текстов */}
       <button
         type="button"
         className={`player__control-btn ${
