@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import DropLinks from './DropLinks';
 import logo from '../images/turbina-logo.svg';
 
 const Header = () => {
@@ -8,7 +9,10 @@ const Header = () => {
       <div className="header__content-container">
         <a href="#" className="header__logo-link"></a>
       </div>
-      <img src={logo} alt="Логотип Турбина" className="header__main-logo" />
+      <h1 className="header__title-logo">
+        <img src={logo} alt="Логотип Турбина" className="header__main-logo" />
+      </h1>
+      <DropLinks />
     </header>
   );
 };

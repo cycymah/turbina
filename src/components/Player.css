@@ -1,0 +1,139 @@
+.player {
+  max-width: 1280px;
+  width: 100%;
+  margin: 200px auto 0;
+  display: flex;
+  color: white;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  transition: margin .4s;
+}
+
+.player__play-btn {
+  width: 32px;
+  height: 28px;
+  margin:0px 20px 0 0;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.player__play-btn:hover {
+  transition: 0.5s ease-in-out;
+  opacity: 0.6;
+}
+
+.player__play-btn_play {
+  background: url('../images/player/play.svg') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.player__play-btn_pause {
+  background: url('../images/player/pause.svg') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.player__control-btn {
+  width: 25px;
+  height: 25px;
+  margin-left: 20px;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.player__control-btn_open {
+  background: url('../images/player/arrow-up.svg') no-repeat;
+  background-size: contain;
+  background-position: center;
+
+}
+
+.player__control-btn_close {
+  background: url('../images/player/close-songlist.svg') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+
+.player__control-btn:hover {
+  transition: 0.5s ease-in-out;
+  opacity: 0.6;
+}
+
+.player__switch-btn {
+  width: 135px;
+  height: 35px;
+  border: 2px solid #FFFFFF;
+  color: white;
+  background-color: transparent;
+  border-radius: 30px;
+  margin-left: 20px;
+  font-family: Inter;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  opacity: 1;
+  cursor: pointer;
+  outline: none;
+  transition: 0.5s ease-in-out;
+}
+
+.player__switch-btn:hover {
+  transition: 0.5s ease-in-out;
+  opacity: 0.6;
+}
+
+
+.player__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.player__info-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player__song-info {
+  margin: 0;
+}
+
+.player__range-box {
+margin-top: 5px;
+}
+
+.player__seeker {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: url('../images/player/line-1.svg');
+  -webkit-appearance: none;
+  height: 2px;
+  outline: none;
+}
+
+.player__seeker-cover {
+  position: absolute;
+  background: url('../images/player/line-seek.svg');
+  width: 0;
+  height: 3px;
+}
+
+.player__close-box {
+  width: 0px;
+  height: 0px;
+  transition: width 2s;
+  transition: height 2s;
+  animation: closeBtn 2s ease-in-out;
+}
+
