@@ -80,16 +80,17 @@
   font-size: 16px;
   line-height: 19px;
   text-align: center;
+  opacity: 1;
   cursor: pointer;
   outline: none;
   transition: 0.5s ease-in-out;
-  animation: showButton .4s ease-in-out;
 }
 
 .player__switch-btn:hover {
   transition: 0.5s ease-in-out;
   opacity: 0.6;
 }
+
 
 .player__container {
   display: flex;
@@ -128,20 +129,11 @@ margin-top: 5px;
   height: 3px;
 }
 
-@keyframes showButton {
-  from {
-    opacity: 0;
-
-  } to {
-    opacity: 1;
-  }
-};
-
-@keyframes hideButton {
-  from {
-    opacity: 1;
-  } to {
-    opacity: 0;
-  }
-};
+.player__close-box {
+  width: 0px;
+  height: 0px;
+  transition: width 2s;
+  transition: height 2s;
+  animation: closeBtn 2s ease-in-out;
+}
 

@@ -11,6 +11,7 @@ const Player = () => {
   const [currentSongTime, setCurrentSongTime] = useState(0);
   const [styleSeekerCover, setSeekerCover] = useState('0%');
   const [isSongListOpen, setSongListOpen] = useState(false);
+  const [lyricSongs, changeLyricSongs] = useState(false);
 
   let audioElement = createRef();
 
@@ -41,6 +42,10 @@ const Player = () => {
   const handlePlayCLick = () => {
     console.log(songsList.first.src);
     isSongPlay ? setSongPlay(false) : setSongPlay(true);
+  };
+
+  const toggleLyricSongs = () => {
+    lyricSongs ? changeLyricSongs(false) : changeLyricSongs(true);
   };
 
   // Открываем лист с песнями
@@ -78,11 +83,20 @@ const Player = () => {
               style={{ width: `${styleSeekerCover}%` }}></div>
           </div>
         </div>
-        <PlayerMenu isBoxOpen={isSongListOpen} songsList={songsList} />
+        <PlayerMenu isBoxOpen={isSongListOpen} toggleTextSongs={lyricSongs} />
       </div>
+
       {isSongListOpen ? (
-        <button className="player__switch-btn">Текст</button>
-      ) : null}
+        <button
+          className={`player__switch-btn ${
+            isSongListOpen ? '' : 'player__switch-btn_close'
+          }`}
+          onClick={toggleLyricSongs}>
+          {lyricSongs ? 'Текст' : 'Релизы'}
+        </button>
+      ) : (
+        <div className="player__close-box"></div>
+      )}
       <button
         type="button"
         className={`player__control-btn ${
