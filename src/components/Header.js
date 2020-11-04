@@ -8,11 +8,11 @@ const Header = () => {
     <header className="header">
       <div className="header__content-container">
         <a href="#" className="header__logo-link"></a>
+        <DropLinks />
       </div>
       <h1 className="header__title-logo">
         <img src={logo} alt="Логотип Турбина" className="header__main-logo" />
       </h1>
-      <DropLinks />
     </header>
   );
 };

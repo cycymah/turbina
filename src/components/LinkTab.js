@@ -12,20 +12,19 @@ function LinkTab({ title, pos, url, isActive }) {
       setShift(-60);
       setIsVisible(0);
     }
-    console.log(isActive, shift);
   }, [isActive, pos]);
 
   const shiftTrans = `translateY(${shift}px)`;
   const cssRules = {
     opacity: isVisible,
     transform: shiftTrans,
-    
+
   };
-  
+
   return (
     <li className="linkTab" style={cssRules}>
       <a className="linkTab__link" href={url}>
-        {title}{' '}
+        {title}
       </a>
     </li>
   );
