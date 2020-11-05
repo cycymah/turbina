@@ -1,6 +1,7 @@
 .main{
     width: 100%;
     max-width: 1260px;
+    min-width: 310px;
     background: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -68,7 +69,7 @@
 
 @media screen and (max-width: 1279px){
     .main{
-        max-width: 1004px;
+        width: calc(100% - 20px);
     }
     .main__title{
         font-size: 46px;
@@ -82,9 +83,6 @@
     }
 }
 @media screen and (max-width: 1023px){
-    .main{
-        max-width: 748px;
-    }
     .main__title{
         font-size: 42px;
         line-height: 50px;
@@ -93,9 +91,31 @@
         max-width: 648px;
     }
 }
+@media screen and (max-width: 700px){
+    .main__description{
+        width: 500px;
+    }
+}
+@media screen and (max-width: 550px)
+{
+    .main__description{
+        width: 400px;
+    }
+}
+@media screen and (max-width: 450px)
+{
+    .main__description{
+        width: 350px;
+    }
+}
+@media screen and (max-width: 400px){
+    .main__description{
+        width: 270px;
+    }
+}
 @media screen and (max-width: 767px){
     .main{
-        max-width: 310px;
+        width: calc(100% - 10px);
     }
     .main__title{
         font-size: 32px;
@@ -106,7 +126,6 @@
         margin-top: 80px;
     }
     .main__description{
-        max-width: 270px;
         font-size: 12px;
         line-height: 16px;
         margin-left: 20px;
