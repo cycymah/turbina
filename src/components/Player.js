@@ -3,7 +3,8 @@ import useInterval from '@use-it/interval';
 import './Player.css';
 import PlayerMenu from './PlayerMenu';
 import song from '../Float.mp3';
-import songsList from '../constants/songsList';
+// import songsList from '../constants/songsList';
+// import { TransitionGroup, CSSTransition } from 'react-transition-group'; // ES6
 
 const Player = () => {
   const [isSongPlay, setSongPlay] = useState(false);
@@ -11,7 +12,7 @@ const Player = () => {
   const [currentSongTime, setCurrentSongTime] = useState(0);
   const [styleSeekerCover, setSeekerCover] = useState('0%');
   const [isSongListOpen, setSongListOpen] = useState(false);
-  const [lyricSongs, changeLyricSongs] = useState(false);
+  const [lyricSongsToggle, changeLyricSongs] = useState(false);
 
   let audioElement = createRef();
 
@@ -23,16 +24,30 @@ const Player = () => {
   // Задаем время в стейте
   useInterval(
     () => {
-      console.log(currentSongTime);
       setCurrentSongTime(audioElement.currentTime);
     },
     isSongPlay ? 500 : null
   );
+  // const buttonRenderTransition = ({ ...props }) => {
+  //   return (
+  //     <button
+  //       {...props}
+  //       className="player__switch-btn"
+  //       onClick={toggleLyricSongs}>
+  //       {lyricSongsToggle ? 'Текст' : 'Релизы'}
+  //     </button>
+  //   );
+  // };
 
   // Меняем строку состояния и время в плеере
   const onTimeUpdateSongTime = () => {
     let songDuration =
-      Math.floor(currentSongTime / 60) + ':' + Math.round(currentSongTime % 60);
+      Math.floor((audioElement.duration - currentSongTime) / 60) +
+      ':' +
+      (Math.round((audioElement.duration - currentSongTime) % 60) < 10
+        ? 0
+        : '') +
+      Math.round((audioElement.duration - currentSongTime) % 60);
     let seekerCoverLength = (currentSongTime * 100) / audioElement.duration;
     setSeekerCover(seekerCoverLength);
     setSongTime(songDuration);
@@ -40,12 +55,11 @@ const Player = () => {
 
   // Меняем стейт по щелчку на плей
   const handlePlayCLick = () => {
-    console.log(songsList.first.src);
     isSongPlay ? setSongPlay(false) : setSongPlay(true);
   };
 
   const toggleLyricSongs = () => {
-    lyricSongs ? changeLyricSongs(false) : changeLyricSongs(true);
+    lyricSongsToggle ? changeLyricSongs(false) : changeLyricSongs(true);
   };
 
   // Открываем лист с песнями
@@ -63,7 +77,7 @@ const Player = () => {
         onTimeUpdate={onTimeUpdateSongTime}>
         Your browser does not support the
         <code>audio</code> element.
-        <source src={song} type={songsList.first.type}></source>
+        <source src={song} type="audio/mp3"></source>
       </audio>
 
       {/* кнопка плей/пауза */}
@@ -77,7 +91,7 @@ const Player = () => {
       {/* Контейнер с плеером */}
       <div className="player__container">
         <div className="player__info-box">
-          <p className="player__song-info">{songsList.first.name}</p>
+          <p className="player__song-info">Float SOng</p>
           <span className="player__song-time">{songTime ? songTime : ''}</span>
         </div>
         <div className="player__range-box">
@@ -87,21 +101,24 @@ const Player = () => {
               style={{ width: `${styleSeekerCover}%` }}></div>
           </div>
         </div>
-        <PlayerMenu isBoxOpen={isSongListOpen} toggleTextSongs={lyricSongs} />
+        <PlayerMenu
+          isBoxOpen={isSongListOpen}
+          toggleTextSongs={lyricSongsToggle}
+        />
       </div>
 
       {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
+      {/* <TransitionGroup component={null}>
+        <CSSTransition */}
+      {/* classNames="player__switch-btn"
+          timeout={{ enter: 100, exit: 400 }}> */}
       {isSongListOpen ? (
-        <button
-          className={`player__switch-btn ${
-            isSongListOpen ? '' : 'player__switch-btn_close'
-          }`}
-          onClick={toggleLyricSongs}>
-          {lyricSongs ? 'Текст' : 'Релизы'}
+        <button className="player__switch-btn" onClick={toggleLyricSongs}>
+          {lyricSongsToggle ? 'Текст' : 'Релизы'}
         </button>
-      ) : (
-        <div className="player__close-box"></div>
-      )}
+      ) : null}
+      {/* </CSSTransition>
+      </TransitionGroup> */}
 
       {/* Кнопка для выплывания списка песен/текстов */}
       <button

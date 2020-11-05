@@ -83,14 +83,17 @@
   opacity: 1;
   cursor: pointer;
   outline: none;
-  transition: 0.5s ease-in-out;
+  transition: opacity .4s ease-in-out;
 }
 
 .player__switch-btn:hover {
-  transition: 0.5s ease-in-out;
+  transition: 0.4s ease-in-out;
   opacity: 0.6;
 }
-
+.player__switch-transition {
+  transition: all 0.4s ease-in-out;
+  /* opacity: 0; */
+}
 
 .player__container {
   display: flex;
@@ -132,8 +135,22 @@ margin-top: 5px;
 .player__close-box {
   width: 0px;
   height: 0px;
-  transition: width 2s;
   transition: height 2s;
   animation: closeBtn 2s ease-in-out;
 }
 
+.player__switch-btn-enter {
+  opacity: 0;
+}
+
+.player__switch-btn-active {
+  /* transition: opacity 400ms; */
+  opacity: 1;
+}
+.player__switch-btn-exit {
+  opacity: 1;
+}
+.player__switch-btn-exit-active {
+  opacity: 0;
+  transition: opacity 400ms;
+}

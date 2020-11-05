@@ -1,6 +1,9 @@
 import React from 'react';
 import './PlayerMenu.css';
+// import { TransitionGroup } from 'react-transition-group'; // ES6
 import PlayerMenuLyric from './PlayerMenuLyric';
+import PlayerMenuRelises from './PlayerMenuRelises';
+import songsList from '../constants/songsList.js';
 
 const PlayerMenu = ({ isBoxOpen, toggleTextSongs }) => {
   return (
@@ -11,7 +14,17 @@ const PlayerMenu = ({ isBoxOpen, toggleTextSongs }) => {
       <h1 className="player__song-title">
         {toggleTextSongs ? 'Текст песни:' : 'Релизы'}
       </h1>
-      {toggleTextSongs ? <PlayerMenuLyric /> : <div>Список релизов</div>}
+
+      {/* <TransitionGroup
+        transitionName="example"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={300}> */}
+      {toggleTextSongs ? (
+        <PlayerMenuLyric />
+      ) : (
+        <PlayerMenuRelises songsList={songsList} />
+      )}
+      {/* </TransitionGroup> */}
     </div>
   );
 };
