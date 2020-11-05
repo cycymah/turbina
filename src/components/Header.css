@@ -1,6 +1,5 @@
 .header {
   width: 100%;
-  max-width: 1280px;
   margin: 0 auto;
   min-height: 503px;
   display: flex;
@@ -54,7 +53,7 @@
 
 @media screen and (max-width: 640px) {
   .header__main-logo {
-    width: 303px;
+    width: 300px;
   }
   .header {
     min-height: 367px;
