@@ -1,8 +1,0 @@
-/* Шрифты Inter */
-
-@import url('./vendors/fonts.css');
-@import url('./vendors/normalize.css');
-@import url('./components/DropLinks.css');
-@import url('./components/LinkTab.css');
-@import url('./components/LinkHead.css');
-@import url('./components/LinkCloseButton.css');
