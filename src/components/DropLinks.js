@@ -38,7 +38,12 @@ function DropLinks() {
           ))}
 
       {linkTabData.map((item, idx) => {
-        const position = viewWidth < 500 ? idx * 35 + 30 : 50 * idx;
+        let position = 0;
+        if (viewWidth > 1100) {
+          position = idx * 43;
+        } else {
+          position = viewWidth < 500 ? idx * 35 + 30 : 41 * idx;
+        }
         return (
           <LinkTab
             key={idx}
