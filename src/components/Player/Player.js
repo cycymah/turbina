@@ -60,7 +60,7 @@ const Player = () => {
   return (
     <section
       className="player"
-      style={{ margin: `${isSongListOpen ? '100px' : '150px'} 0 0` }}>
+      style={{ margin: `${isSongListOpen ? '100px' : '190px'} 0 0` }}>
       <audio
         className="player__audio"
         ref={(audio) => (audioElement = audio)}
