@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.167425e6.chunk.css",
-    "main.js": "/static/js/main.4bfe180d.chunk.js",
-    "main.js.map": "/static/js/main.4bfe180d.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.83022754.js",
-    "runtime-main.js.map": "/static/js/runtime-main.83022754.js.map",
-    "static/js/2.808d50b3.chunk.js": "/static/js/2.808d50b3.chunk.js",
-    "static/js/2.808d50b3.chunk.js.map": "/static/js/2.808d50b3.chunk.js.map",
-    "static/js/3.3b13519f.chunk.js": "/static/js/3.3b13519f.chunk.js",
-    "static/js/3.3b13519f.chunk.js.map": "/static/js/3.3b13519f.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.167425e6.chunk.css.map": "/static/css/main.167425e6.chunk.css.map",
-    "static/js/2.808d50b3.chunk.js.LICENSE.txt": "/static/js/2.808d50b3.chunk.js.LICENSE.txt",
-    "static/media/Float.ebac5a64.mp3": "/static/media/Float.ebac5a64.mp3",
-    "static/media/index.css": "/static/media/Inter-Regular.fc49d131.woff",
-    "static/media/Player.css": "/static/media/play.46d12a81.svg",
-    "static/media/App.css": "/static/media/background-top.ff12ab55.png",
-    "static/media/Header.css": "/static/media/logo.2155b0aa.svg",
-    "static/media/turbina-logo.25c90b90.svg": "/static/media/turbina-logo.25c90b90.svg"
+    "main.css": "/turbina/static/css/main.19cda316.chunk.css",
+    "main.js": "/turbina/static/js/main.4bfe180d.chunk.js",
+    "main.js.map": "/turbina/static/js/main.4bfe180d.chunk.js.map",
+    "runtime-main.js": "/turbina/static/js/runtime-main.35fa545a.js",
+    "runtime-main.js.map": "/turbina/static/js/runtime-main.35fa545a.js.map",
+    "static/js/2.808d50b3.chunk.js": "/turbina/static/js/2.808d50b3.chunk.js",
+    "static/js/2.808d50b3.chunk.js.map": "/turbina/static/js/2.808d50b3.chunk.js.map",
+    "static/js/3.3b13519f.chunk.js": "/turbina/static/js/3.3b13519f.chunk.js",
+    "static/js/3.3b13519f.chunk.js.map": "/turbina/static/js/3.3b13519f.chunk.js.map",
+    "index.html": "/turbina/index.html",
+    "static/css/main.19cda316.chunk.css.map": "/turbina/static/css/main.19cda316.chunk.css.map",
+    "static/js/2.808d50b3.chunk.js.LICENSE.txt": "/turbina/static/js/2.808d50b3.chunk.js.LICENSE.txt",
+    "static/media/Float.ebac5a64.mp3": "/turbina/static/media/Float.ebac5a64.mp3",
+    "static/media/index.css": "/turbina/static/media/Inter-Regular.fc49d131.woff",
+    "static/media/Player.css": "/turbina/static/media/play.46d12a81.svg",
+    "static/media/App.css": "/turbina/static/media/background-top.ff12ab55.png",
+    "static/media/Header.css": "/turbina/static/media/logo.2155b0aa.svg",
+    "static/media/turbina-logo.25c90b90.svg": "/turbina/static/media/turbina-logo.25c90b90.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.83022754.js",
+    "static/js/runtime-main.35fa545a.js",
     "static/js/2.808d50b3.chunk.js",
-    "static/css/main.167425e6.chunk.css",
+    "static/css/main.19cda316.chunk.css",
     "static/js/main.4bfe180d.chunk.js"
   ]
 }
