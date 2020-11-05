@@ -1,5 +1,5 @@
 .player__menu {
-  width: calc(100% - 135px);
+  width: 100%;
   overflow-y: scroll;
   list-style: none;
   margin-top: 20px;

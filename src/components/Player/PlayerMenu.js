@@ -11,7 +11,7 @@ const PlayerMenu = ({ isBoxOpen, toggleTextSongs }) => {
         isBoxOpen ? 'player__menu_show ' : 'player__menu_hide'
       }`}>
       <h1 className="player__menu-title">
-        {toggleTextSongs ? 'Текст песни:' : 'Релизы:'}
+        {toggleTextSongs ? 'Релизы:' : 'Текст песни:'}
       </h1>
       {toggleTextSongs ? (
         <PlayerMenuLyric />
