@@ -54,7 +54,6 @@ const Player = () => {
   // Открываем лист с песнями
   const handleSongsList = () => {
     isSongListOpen ? setSongListOpen(false) : setSongListOpen(true);
-    // console.log(`0 0 ${isSongListOpen ? '30px' : '0'} 0`);
   };
 
   return (
