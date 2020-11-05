@@ -28,7 +28,6 @@
     letter-spacing: 0em;
     margin: 90px 0 40px 50px;
     padding: 0;
-    padding: 0;
     color: #000000;
 }
 .main__list{
@@ -67,4 +66,51 @@
 .main__text_margin_indent{
     margin-top: 30px;
     padding: 0;
+}
+
+@media screen and (max-width: 1279px){
+    .main{
+        max-width: 1004px;
+    }
+    .main__title{
+        font-size: 46px;
+        line-height: 56px;
+        margin-top: 80px;
+    }
+    .main__description{
+        max-width: 680px;
+        font-size: 15px;
+        line-height: 22px;
+    }
+}
+@media screen and (max-width: 1023px){
+    .main{
+        max-width: 748px;
+    }
+    .main__title{
+        font-size: 42px;
+        line-height: 50px;
+    }
+    .main__description{
+        max-width: 648px;
+    }
+}
+@media screen and (max-width: 767px){
+    .main{
+        max-width: 310px;
+    }
+    .main__title{
+        font-size: 32px;
+        line-height: 39px;
+        margin: 60px 0 30px 20px;
+    }
+    .main__title:nth-child(1) {
+        margin-top: 80px;
+    }
+    .main__description{
+        max-width: 270px;
+        font-size: 12px;
+        line-height: 16px;
+        margin-left: 20px;
+    }
 }
