@@ -1,8 +1,10 @@
 .player__menu {
+  width: calc(100% - 135px);
   overflow-y: scroll;
   list-style: none;
   margin-top: 20px;
   padding: 0;
+  transition: all .4s ease-in-out;
 }
 
 .player__menu_show {
@@ -34,6 +36,24 @@ height: 100px;
   line-height: 24px;
 }
 
+@media screen and (max-width: 1054px) {
+  .player__menu-title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .player__menu {
+    margin-top: 30px;
+    width: 100%;
+  }
+  .player__menu-title {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
 @keyframes showBox {
   0% {
     height: 0px;
@@ -42,11 +62,4 @@ height: 100px;
   }
 };
 
-@media screen and (max-width: 1054px) {
-  .player__menu-title {
-  font-size: 18px;
-  line-height: 22px;
-  }
 
-
-}

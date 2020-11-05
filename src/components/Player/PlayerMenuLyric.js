@@ -3,7 +3,7 @@ import './PlayerMenuLyric.css';
 
 const PlayerMenuLyric = () => {
   return (
-    <pre className="player__lyric-text">
+    <span className="player__lyric-text">
       Сотни лет, сотни лет и день, и ночь вращается <br />
       Карусель, карусель Земля,o-о-о-о-о <br />
       Сотни лет, сотни лет все ветры возвращаются
@@ -15,7 +15,7 @@ const PlayerMenuLyric = () => {
       Прогнав ветра измен (Прогнав ветра измен) <br />
       Развеет он (Мы с…
       <br />
-    </pre>
+    </span>
   );
 };
 

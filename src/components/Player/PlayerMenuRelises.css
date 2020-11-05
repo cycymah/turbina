@@ -10,3 +10,11 @@
   font-size: 20px;
   line-height: 24px;
 }
+
+@media screen and (max-width: 767px) {
+  .player__relises-list {
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 10px;
+  }
+}

@@ -2,9 +2,7 @@ import React, { useState, useEffect, createRef } from 'react';
 import useInterval from '@use-it/interval';
 import './Player.css';
 import PlayerMenu from './PlayerMenu';
-import song from '../Float.mp3';
-// import songsList from '../constants/songsList';
-// import { TransitionGroup, CSSTransition } from 'react-transition-group'; // ES6
+import song from '../../Float.mp3';
 
 const Player = () => {
   const [isSongPlay, setSongPlay] = useState(false);
@@ -28,17 +26,6 @@ const Player = () => {
     },
     isSongPlay ? 500 : null
   );
-
-  // const buttonRenderTransition = ({ ...props }) => {
-  //   return (
-  //     <button
-  //       {...props}
-  //       className="player__switch-btn"
-  //       onClick={toggleLyricSongs}>
-  //       {lyricSongsToggle ? 'Текст' : 'Релизы'}
-  //     </button>
-  //   );
-  // };
 
   // Меняем строку состояния и время в плеере
   const onTimeUpdateSongTime = () => {
@@ -93,34 +80,34 @@ const Player = () => {
       <div
         className="player__container"
         style={{ margin: `0 0 ${isSongListOpen ? '30px' : ''} 0` }}>
-        <div className="player__info-box">
-          <p className="player__song-info">Float SOng</p>
-          <span className="player__song-time">{songTime ? songTime : ''}</span>
+        <div className="player__control-box">
+          <div className="player__seeker-info-box">
+            <div className="player__info-box">
+              <p className="player__song-info">Float SOng</p>
+              <span className="player__song-time">
+                {songTime ? songTime : ''}
+              </span>
+            </div>
+
+            <div className="player__seeker">
+              <div
+                className="player__seeker-cover"
+                style={{ width: `${styleSeekerCover}%` }}></div>
+            </div>
+          </div>
+          {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
+          {isSongListOpen ? (
+            <button className="player__switch-btn" onClick={toggleLyricSongs}>
+              {lyricSongsToggle ? 'Текст песни' : 'Релизы'}
+            </button>
+          ) : null}
         </div>
 
-        <div className="player__seeker">
-          <div
-            className="player__seeker-cover"
-            style={{ width: `${styleSeekerCover}%` }}></div>
-        </div>
         <PlayerMenu
           isBoxOpen={isSongListOpen}
           toggleTextSongs={lyricSongsToggle}
         />
       </div>
-
-      {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
-      {/* <TransitionGroup component={null}>
-        <CSSTransition */}
-      {/* classNames="player__switch-btn"
-          timeout={{ enter: 100, exit: 400 }}> */}
-      {isSongListOpen ? (
-        <button className="player__switch-btn" onClick={toggleLyricSongs}>
-          {lyricSongsToggle ? 'Текст' : 'Релизы'}
-        </button>
-      ) : null}
-      {/* </CSSTransition>
-      </TransitionGroup> */}
 
       {/* Кнопка для выплывания списка песен/текстов */}
       <button
