@@ -28,6 +28,7 @@ const Player = () => {
     },
     isSongPlay ? 500 : null
   );
+
   // const buttonRenderTransition = ({ ...props }) => {
   //   return (
   //     <button
@@ -58,6 +59,7 @@ const Player = () => {
     isSongPlay ? setSongPlay(false) : setSongPlay(true);
   };
 
+  // Меняем блок релизов на песни
   const toggleLyricSongs = () => {
     lyricSongsToggle ? changeLyricSongs(false) : changeLyricSongs(true);
   };
@@ -65,18 +67,17 @@ const Player = () => {
   // Открываем лист с песнями
   const handleSongsList = () => {
     isSongListOpen ? setSongListOpen(false) : setSongListOpen(true);
+    // console.log(`0 0 ${isSongListOpen ? '30px' : '0'} 0`);
   };
 
   return (
     <section
       className="player"
-      style={{ margin: `${isSongListOpen ? '100px' : '150px'} 25px 0` }}>
+      style={{ margin: `${isSongListOpen ? '100px' : '150px'} 0 0` }}>
       <audio
         className="player__audio"
         ref={(audio) => (audioElement = audio)}
         onTimeUpdate={onTimeUpdateSongTime}>
-        Your browser does not support the
-        <code>audio</code> element.
         <source src={song} type="audio/mp3"></source>
       </audio>
 
@@ -89,17 +90,18 @@ const Player = () => {
         }`}></button>
 
       {/* Контейнер с плеером */}
-      <div className="player__container">
+      <div
+        className="player__container"
+        style={{ margin: `0 0 ${isSongListOpen ? '30px' : ''} 0` }}>
         <div className="player__info-box">
           <p className="player__song-info">Float SOng</p>
           <span className="player__song-time">{songTime ? songTime : ''}</span>
         </div>
-        <div className="player__range-box">
-          <div className="player__seeker">
-            <div
-              className="player__seeker-cover"
-              style={{ width: `${styleSeekerCover}%` }}></div>
-          </div>
+
+        <div className="player__seeker">
+          <div
+            className="player__seeker-cover"
+            style={{ width: `${styleSeekerCover}%` }}></div>
         </div>
         <PlayerMenu
           isBoxOpen={isSongListOpen}

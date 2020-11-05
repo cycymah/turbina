@@ -1,9 +1,8 @@
 import React from 'react';
 import './PlayerMenu.css';
-// import { TransitionGroup } from 'react-transition-group'; // ES6
 import PlayerMenuLyric from './PlayerMenuLyric';
 import PlayerMenuRelises from './PlayerMenuRelises';
-import songsList from '../constants/songsList.js';
+import songsList from '../constants/songsList';
 
 const PlayerMenu = ({ isBoxOpen, toggleTextSongs }) => {
   return (
@@ -11,20 +10,14 @@ const PlayerMenu = ({ isBoxOpen, toggleTextSongs }) => {
       className={`player__menu ${
         isBoxOpen ? 'player__menu_show ' : 'player__menu_hide'
       }`}>
-      <h1 className="player__song-title">
+      <h1 className="player__menu-title">
         {toggleTextSongs ? 'Текст песни:' : 'Релизы'}
       </h1>
-
-      {/* <TransitionGroup
-        transitionName="example"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}> */}
       {toggleTextSongs ? (
         <PlayerMenuLyric />
       ) : (
         <PlayerMenuRelises songsList={songsList} />
       )}
-      {/* </TransitionGroup> */}
     </div>
   );
 };

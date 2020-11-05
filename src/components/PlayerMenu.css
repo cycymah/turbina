@@ -1,14 +1,13 @@
 .player__menu {
   overflow-y: scroll;
-  /* height: 150px; */
   list-style: none;
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 0;
 }
 
 .player__menu_show {
 animation: showBox .4s ease-in-out;
-height: 150px;
+height: 100px;
 }
 
 .player__menu_hide {
@@ -27,9 +26,10 @@ height: 150px;
   border-radius: 2px;
 }
 
-.player__song-title {
+.player__menu-title {
   font-style: italic;
   font-weight: normal;
+  margin: 0 0 16px 0;
   font-size: 20px;
   line-height: 24px;
 }
@@ -38,6 +38,15 @@ height: 150px;
   0% {
     height: 0px;
   } 100% {
-    height: 150px;
+    height: 100px;
   }
 };
+
+@media screen and (max-width: 1054px) {
+  .player__menu-title {
+  font-size: 18px;
+  line-height: 22px;
+  }
+
+
+}
