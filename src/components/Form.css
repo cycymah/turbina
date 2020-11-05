@@ -9,11 +9,10 @@
   .form {
     max-width: 650px;
     margin: 0 50px 110px;
-    align-self: center;
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 767px) {
   .form {
     margin: 0 20px 80px;
   }
@@ -36,7 +35,7 @@
   margin: 60px auto 0;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 767px) {
   .form__input {
     font-size: 14px;
     line-height: 1.42;
@@ -82,7 +81,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 767px) {
   .form__save-button {
     min-height: 42px;
     font-size: 12px;
@@ -111,10 +110,24 @@
   text-transform: uppercase;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 1279px) {
+  .form__title {
+    font-size: 46px;
+    line-height: 1.2;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .form__title {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .form__title {
     font-size: 32px;
-    line-height: 1.25;
+    line-height: 1.2;
   }
 }
 
@@ -126,7 +139,14 @@
   margin: 40px 0 0;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 1279px) {
+  .form__text {
+    font-size: 15px;
+    line-height: 1.47;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .form__text {
     font-size: 12px;
     line-height: 1.33;
@@ -149,7 +169,7 @@
   line-height: 1.37;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 767px) {
   .form__label {
     font-size: 12px;
     line-height: 1.83;

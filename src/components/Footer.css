@@ -8,19 +8,7 @@
 
 @media screen and (max-width: 1310px) {
   .footer {
-    max-width: 1000px;
-  }
-}
-
-@media screen and (max-width: 1054px) {
-  .footer {
-    max-width: 748px;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .footer {
-    max-width: 310px;
+    width: calc(100% - 20px);
   }
 }
 
@@ -50,7 +38,7 @@
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 767px) {
   .footer__copyright {
     font-size: 12px;
     line-height: 1.83;
