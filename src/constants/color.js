@@ -1,1 +1,1 @@
-export const COLOR = '#af7'
+export const COLOR = '#fff'
