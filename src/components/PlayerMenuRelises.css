@@ -1,0 +1,12 @@
+.player__relises-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+}
+
+.player__relise-message {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+}
