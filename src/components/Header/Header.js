@@ -1,8 +1,8 @@
 import React from 'react';
 import './Header.css';
-import DropLinks from './DropLinks';
-import logo from '../images/turbina-logo.svg';
-import Player from './Player/Player';
+import DropLinks from '../DropLinks';
+import logo from '../../images/turbina-logo.svg';
+import Player from '../Player/Player';
 
 const Header = () => {
   return (
