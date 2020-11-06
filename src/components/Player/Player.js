@@ -60,7 +60,7 @@ const Player = () => {
   return (
     <section
       className="player"
-      style={{ margin: `${isSongListOpen ? '100px' : '190px'} 0 0` }}>
+      style={{ margin: `${isSongListOpen ? '100px' : '180px'} 0 0` }}>
       <audio
         className="player__audio"
         ref={(audio) => (audioElement = audio)}
@@ -98,7 +98,7 @@ const Player = () => {
           {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
           {isSongListOpen ? (
             <button className="player__switch-btn" onClick={toggleLyricSongs}>
-              {lyricSongsToggle ? 'Текст песни' : 'Релизы'}
+              {lyricSongsToggle ? 'Релизы' : 'Текст песни'}
             </button>
           ) : null}
         </div>

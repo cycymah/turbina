@@ -2,6 +2,7 @@
   min-height: 503px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-direction: column;
 }
 
@@ -51,13 +52,29 @@
     height: 32px;
     margin: 11px 0 0 12px;
   }
+
+}
+@media screen and (max-width: 800px) {
+  .header {
+    min-height: 1000px;
+  }
+.header__main-logo {
+  max-width: 620px
+}
 }
 
 @media screen and (max-width: 700px) {
   .header__main-logo {
     width: 300px;
+    min-height: 192px;
   }
   .header {
     min-height: 367px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header__main-logo {
+    width: 300px;
   }
 }

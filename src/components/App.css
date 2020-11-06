@@ -22,8 +22,3 @@
   width: 100%;
 }
 
-@media screen and (max-width: 700px) {
-  .page {
-    background-position: unset;
-  }
-}

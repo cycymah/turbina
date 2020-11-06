@@ -141,7 +141,7 @@ line-height: 22px;
   }
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 760px) {
   .player {
     font-size: 14px;
     line-height: 19px;
