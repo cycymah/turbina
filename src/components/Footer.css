@@ -4,12 +4,7 @@
   align-items: center;
   max-width: 1260px;
   margin: 0 auto;
-}
-
-@media screen and (max-width: 1310px) {
-  .footer {
-    width: calc(100% - 20px);
-  }
+  width: calc(100% - 20px);
 }
 
 .footer__container {
