@@ -11,25 +11,29 @@
 }
 
 /* Кнопка проигрывания музыки */
+
 .player__play-btn {
   width: 32px;
   height: 28px;
-  margin:0px 20px 0 25px;
+  margin: 0px 20px 0 25px;
   padding: 0;
   border: 0;
   outline: none;
   cursor: pointer;
   transition: 0.5s ease-in-out;
 }
+
 .player__play-btn:hover {
   transition: 0.5s ease-in-out;
   opacity: 0.6;
 }
+
 .player__play-btn_play {
   background: url('../../images/player/play.svg') no-repeat;
   background-size: contain;
   background-position: center;
 }
+
 .player__play-btn_pause {
   background: url('../../images/player/pause.svg') no-repeat;
   background-size: contain;
@@ -37,6 +41,7 @@
 }
 
 /* Кнопка выезжающего плейлиста/текстов песен */
+
 .player__control-btn {
   width: 25px;
   height: 25px;
@@ -47,22 +52,26 @@
   border: 0;
   transition: 0.5s ease-in-out;
 }
+
 .player__control-btn_open {
   background: url('../../images/player/arrow-up.svg') no-repeat;
   background-size: contain;
   background-position: center;
 }
+
 .player__control-btn_close {
   background: url('../../images/player/close-songlist.svg') no-repeat;
   background-size: contain;
   background-position: center;
 }
+
 .player__control-btn:hover {
   transition: 0.5s ease-in-out;
   opacity: 0.6;
 }
 
 /* Кнопка переключения песен/плейлиста */
+
 .player__switch-btn {
   width: 135px;
   height: 35px;
@@ -82,43 +91,55 @@
   outline: none;
   transition: all .4s ease-in-out;
 }
+
 .player__switch-btn:hover {
   transition: 0.4s ease-in-out;
   opacity: 0.6;
 }
+
 .player__switch-transition {
   transition: all 0.4s ease-in-out;
 }
 
 /* Контейнер с названием песни, строкой состояния проигрывания и текстом/плейлистом */
+
 .player__container {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
+
 .player__control-box {
   display: flex;
 }
 
 /* Бокс для название песни и времени проигрывания */
+
 .player__info-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .player__seeker-info-box {
   width: 100%;
 }
+
 /* Название текщей песни */
+
 .player__song-info {
   margin: 0;
 }
 
 /* Строка состояния проигрывания */
+
 .player__seeker {
   position: relative;
   overflow: hidden;
   width: 100%;
+  /*Временно, чтобы зона тыка мышкой была пошире (пользователю не прицеливаться в тонкую линию) */
+  padding: 5px 0;
+  /*================*/
   background: url('../../images/player/line-1.svg');
   -webkit-appearance: none;
   height: 2px;
@@ -127,6 +148,7 @@
 }
 
 /* Активная строка состояния проигрывания */
+
 .player__seeker-cover {
   position: absolute;
   background: url('../../images/player/line-seek.svg');
@@ -136,16 +158,18 @@
 
 @media screen and (max-width: 1054px) {
   .player {
-font-size: 18px;
-line-height: 22px;
+    font-size: 18px;
+    line-height: 22px;
   }
 }
+
 @media screen and (max-width: 781px) {
-.player__switch-btn {
-  font-size: 15px;
-  line-height: 18px;
+  .player__switch-btn {
+    font-size: 15px;
+    line-height: 18px;
   }
 }
+
 @media screen and (max-width: 760px) {
   .player {
     font-size: 14px;
@@ -169,4 +193,3 @@ line-height: 22px;
     height: 16px;
   }
 }
-
