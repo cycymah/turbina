@@ -3,7 +3,7 @@ import LinkTab from './LinkTab';
 import LinkHead from './LinkHead';
 import LinkCloseButton from './LinkCloseButton';
 
-import { LINK_TAB_DATA as linkTabData } from '../constants/linkTabData';
+import { LINK_TAB_DATA as linkTabData } from '../../constants/linkTabData';
 
 function DropLinks() {
   const [isOpened, setIsOpened] = React.useState(false);

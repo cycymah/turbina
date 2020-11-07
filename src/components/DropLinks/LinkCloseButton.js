@@ -1,5 +1,5 @@
 import React from 'react';
-import { COLOR as color } from '../constants/color';
+import { COLOR as color } from '../../constants/color';
 //import closeIconPath from '../images/close-icon.svg'
 
 function LinkCloseButton({ onClick }) {

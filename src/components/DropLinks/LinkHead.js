@@ -1,5 +1,5 @@
 import React from 'react';
-import { COLOR as color } from '../constants/color';
+import { COLOR as color } from '../../constants/color';
 
 function LinkHead({ title, onClick }) {
   const [isVisible, setIsVisible] = React.useState(0);

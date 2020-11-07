@@ -1,5 +1,5 @@
 import React from 'react';
-import { COLOR as color } from '../constants/color';
+import { COLOR as color } from '../../constants/color';
 
 function LinkTab({ title, pos, url, isActive }) {
   const [shift, setShift] = React.useState(-60);
