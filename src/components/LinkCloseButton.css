@@ -1,8 +1,7 @@
-.linkCloseButton {
+.droplinks__close-button {
   position: absolute;
   top: 0;
   right: 0;
-  transform: translateY(0);
   background-color: transparent;
   opacity: 0;
   border-radius: 50%;
