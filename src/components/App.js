@@ -11,7 +11,6 @@ function App() {
     <div className="page">
       <div className="page__container">
         <Header />
-        {/* <Player audioFile={audioFile} /> */}
         <Main />
         <Footer />
       </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createRef } from 'react';
 import useInterval from '@use-it/interval';
 import './Player.css';
+import classNames from 'classnames';
 import PlayerMenu from './PlayerMenu';
 import song from '../../Float.mp3';
 
@@ -11,6 +12,20 @@ const Player = () => {
   const [styleSeekerCover, setSeekerCover] = useState('0%');
   const [isSongListOpen, setSongListOpen] = useState(false);
   const [lyricSongsToggle, changeLyricSongs] = useState(false);
+
+  const buttonPlayStopClasses = classNames(
+    'player__play-btn',
+    'player__play-btn_play',
+    { 'player__play-btn_pause': isSongPlay }
+  );
+
+  const buttonShowPlaylist = classNames(
+    'player__control-btn',
+    'player__control-btn_open',
+    {
+      'player__control-btn_close': isSongListOpen,
+    }
+  );
 
   let audioElement = createRef();
 
@@ -42,19 +57,13 @@ const Player = () => {
   };
 
   // Меняем стейт по щелчку на плей
-  const handlePlayCLick = () => {
-    isSongPlay ? setSongPlay(false) : setSongPlay(true);
-  };
+  const handlePlayCLick = () => setSongPlay(!isSongPlay);
 
   // Меняем блок релизов на песни
-  const toggleLyricSongs = () => {
-    lyricSongsToggle ? changeLyricSongs(false) : changeLyricSongs(true);
-  };
+  const toggleLyricSongs = () => changeLyricSongs(!lyricSongsToggle);
 
   // Открываем лист с песнями
-  const handleSongsList = () => {
-    isSongListOpen ? setSongListOpen(false) : setSongListOpen(true);
-  };
+  const handleSongsList = () => setSongListOpen(!isSongListOpen);
 
   return (
     <section
@@ -71,9 +80,7 @@ const Player = () => {
       <button
         onClick={handlePlayCLick}
         type="button"
-        className={`player__play-btn ${
-          isSongPlay ? 'player__play-btn_pause' : 'player__play-btn_play'
-        }`}></button>
+        className={buttonPlayStopClasses}></button>
 
       {/* Контейнер с плеером */}
       <div
@@ -83,9 +90,7 @@ const Player = () => {
           <div className="player__seeker-info-box">
             <div className="player__info-box">
               <p className="player__song-info">Float SOng</p>
-              <span className="player__song-time">
-                {songTime ? songTime : ''}
-              </span>
+              <span className="player__song-time">{songTime || ''}</span>
             </div>
 
             <div className="player__seeker">
@@ -111,11 +116,7 @@ const Player = () => {
       {/* Кнопка для выплывания списка песен/текстов */}
       <button
         type="button"
-        className={`player__control-btn ${
-          isSongListOpen
-            ? 'player__control-btn_close'
-            : 'player__control-btn_open'
-        }`}
+        className={buttonShowPlaylist}
         onClick={handleSongsList}></button>
     </section>
   );

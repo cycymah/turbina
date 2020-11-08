@@ -1,4 +1,4 @@
-.player__relise-item {
+.player__release-item {
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -6,20 +6,20 @@
   margin-bottom: 16px;
 }
 
-.player__relise-item:hover {
+.player__release-item:hover {
   cursor: pointer;
   font-style: italic;
 }
 
 @media screen and (max-width: 1054px) {
-  .player__relise-item {
+  .player__release-item {
   margin-bottom: 15px;
   font-size: 18px;
   line-height: 22px;
   }
 }
 @media screen and (max-width: 767px) {
-  .player__relise-item {
+  .player__release-item {
     font-size: 14px;
     line-height: 19px;
     margin-bottom: 10px;

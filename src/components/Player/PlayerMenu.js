@@ -1,7 +1,7 @@
 import React from 'react';
 import './PlayerMenu.css';
 import PlayerMenuLyric from './PlayerMenuLyric';
-import PlayerMenuRelises from './PlayerMenuRelises';
+import PlayerMenuReleases from './PlayerMenuReleases';
 import songsList from '../../constants/songsList';
 
 const PlayerMenu = ({ isBoxOpen, toggleTextSongs }) => {
@@ -16,7 +16,7 @@ const PlayerMenu = ({ isBoxOpen, toggleTextSongs }) => {
       {toggleTextSongs ? (
         <PlayerMenuLyric />
       ) : (
-        <PlayerMenuRelises songsList={songsList} />
+        <PlayerMenuReleases songsList={songsList} />
       )}
     </div>
   );
