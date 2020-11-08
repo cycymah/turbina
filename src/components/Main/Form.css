@@ -1,8 +1,10 @@
 .form {
   max-width: 600px;
   margin: 0 0 110px 50px;
-  background-color: #ffffff;
-  align-self: baseline;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
 }
 
 @media screen and (max-width: 800px) {
@@ -15,6 +17,7 @@
 @media screen and (max-width: 767px) {
   .form {
     margin: 0 20px 80px;
+    align-self: flex-start;
   }
 }
 
@@ -23,7 +26,7 @@
   height: 60px;
   margin: 10px auto 0;
   border: none;
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid #000;
   box-sizing: border-box;
   font-family: inherit;
   font-size: 16px;
@@ -47,25 +50,45 @@
 }
 
 .form__input_type_error {
-  border-color: red;
+  color: #FF0000;
+  border-color: #FF0000;
 }
 
 .form__input-error {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.25;
   color: #FF0000;
-  margin: 5px 0 0 24px;
-  display: none;
+  margin: 5px 0 0;
+  display: block;
 }
 
-.form__input-error_active {
+@media screen and (max-width: 767px) {
+  .form__input-error {
+    font-size: 14px;
+    line-height: 1.42;
+  }
+}
+
+.form__submit-error {
+  font-size: 16px;
+  line-height: 1.37;
+  color: #FF0000;
+  margin: 20px 0 0;
   display: block;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .form__submit-error {
+    font-size: 14px;
+    line-height: 1.42;
+  }
 }
 
 .form__save-button {
   width: 100%;
   min-height: 60px;
-  border: 2px solid #000000;
+  border: 2px solid #000;
   box-sizing: border-box;
   border-radius: 30px;
   font-size: 18px;
@@ -73,7 +96,7 @@
   margin: 40px auto 0;
   transition: 0.5s linear;
   outline: none;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .form__save-button:hover {
@@ -94,7 +117,7 @@
   background: #E5E5E5;
   color: #000;
   opacity: 0.2;
-  border: 1px solid #000000;
+  border: 1px solid #000;
 }
 
 .form__save-button_inactive:hover {
@@ -157,13 +180,13 @@
 
 .form__container {
   display: flex;
+  margin: 40px 0 0;
+  align-items: center;
 }
 
 .form__checkbox-text {
-  margin: 40px 0 0;
   font-size: 16px;
   line-height: 1.37;
-  align-self: center;
 }
 
 @media screen and (max-width: 767px) {
@@ -183,7 +206,6 @@
   display: inline-flex;
   align-items: center;
   user-select: none;
-  margin: 40px 0 0;
 }
 
 .form__label:hover {
@@ -197,7 +219,7 @@
   height: 28px;
   flex-shrink: 0;
   flex-grow: 0;
-  border: 2px solid #000000;
+  border: 2px solid #000;
   box-sizing: border-box;
   border-radius: 50%;
   margin-right: 20px;
