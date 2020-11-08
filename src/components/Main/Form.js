@@ -3,12 +3,17 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import cn from 'classnames';
 
-function Form({ onUpdateUser }) {
+function Form({ onUpdateUser, submitRequestConfirmed }) {
   const [formSubmitState, setFormSubmitState] = React.useState(false);
+  const [checkboxIsChecked, setCheckboxIsChecked] = React.useState(false);
   const { register, handleSubmit, errors } = useForm({mode: 'onChange'});
 
+  const handleCheckboxClick = () => {
+    setCheckboxIsChecked(!checkboxIsChecked);
+  }
+
   const onSubmit = data => {
-    setFormSubmitState(true)
+    setFormSubmitState(true);
     onUpdateUser(data);
   };
 
@@ -24,9 +29,10 @@ function Form({ onUpdateUser }) {
         defaultValue=""
         ref={register({
           required: {value: true, message: 'Заполните это поле'},
-          minLength: {value: 2, message: 'Текст должен содержать не менее 2 симв.'},
-          maxLength: 40,
+          minLength: {value: 5, message: 'Текст должен содержать не менее 5 симв.'},
+          pattern: {value: /^[а-яa-z\s-]+$/ui, message: 'Текст должен содержать только буквы'}
         })}
+        maxLength="40"
         placeholder="Имя и фамилия автора"
         autoComplete="off"
       />
@@ -40,9 +46,10 @@ function Form({ onUpdateUser }) {
         defaultValue=""
         ref={register({
           required: {value: true, message: 'Заполните это поле'},
-          minLength: {value: 2, message: 'Текст должен содержать не менее 2 симв.'},
-          maxLength: 40,
+          minLength: {value: 5, message: 'Текст должен содержать не менее 5 симв.'},
+          pattern: {value: /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/, message: 'Введите адрес электронной почты'},
         })}
+        maxLength="40"
         placeholder="Почта"
         autoComplete="off"
       />
@@ -56,9 +63,10 @@ function Form({ onUpdateUser }) {
         defaultValue=""
         ref={register({
           required: {value: true, message: 'Заполните это поле'},
-          minLength: {value: 2, message: 'Текст должен содержать не менее 2 симв.'},
-          maxLength: 20,
+          minLength: {value: 6, message: 'Номер должен содержать не менее 6 симв.'},
+          pattern: {value: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/, message: 'Введите номер телефона'}, // eslint-disable-line
         })}
+        maxLength="20"
         placeholder="Телефон"
         autoComplete="off"
       />
@@ -72,9 +80,9 @@ function Form({ onUpdateUser }) {
         defaultValue=""
         ref={register({
           required: {value: true, message: 'Заполните это поле'},
-          minLength: {value: 2, message: 'Текст должен содержать не менее 2 симв.'},
-          maxLength: 200,
+          minLength: {value: 20, message: 'Текст должен содержать не менее 20 симв.'},
         })}
+        maxLength="200"
         placeholder="Стихи"
         autoComplete="off"
       />
@@ -83,18 +91,18 @@ function Form({ onUpdateUser }) {
 
       <div className="form__container">
         <input type="checkbox" className="form__checkbox" id="form-checkbox" ></input>
-        <label htmlFor="form-checkbox" className="form__label"></label>
+        <label htmlFor="form-checkbox" className="form__label" onClick={handleCheckboxClick}></label>
         <div className="form__checkbox-text">Согласен с&nbsp;<a className="form__link" target="_blank" rel="noreferrer" href="#">офертой</a></div>
       </div>
 
       <button
         type="submit"
-        className={cn('form__save-button', { "form__save-button_inactive": (errors.name || errors.email || errors.phone || errors.verse) })}
-        disabled={(errors.name || errors.email || errors.phone || errors.verse)}
+        className={cn('form__save-button', { "form__save-button_inactive": (errors.name || errors.email || errors.phone || errors.verse || checkboxIsChecked === false) })}
+        disabled={(errors.name || errors.email || errors.phone || errors.verse || checkboxIsChecked === false)}
       >
-        {formSubmitState.state ? 'Отправление...' : 'Отправить форму'}
+        {submitRequestConfirmed ? 'Ура, форма отправлена!' : (formSubmitState.state ? 'Отправление...' : 'Отправить форму')}
       </button>
-      <span className="form__submit-error">Упс, что-то пошло не так и форма не отправилась, попробуйте ещё раз!</span>
+      {submitRequestConfirmed === false && <span className="form__submit-error">Упс, что-то пошло не так и форма не отправилась, попробуйте ещё раз!</span>}
     </form>
   );
 }
