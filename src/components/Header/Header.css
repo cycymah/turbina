@@ -14,7 +14,8 @@
 }
 
 .header__main-logo {
-
+  height: 36vh;
+  width: 66vw;
   object-fit: contain;
   object-position: center;
 }
@@ -38,7 +39,6 @@
 
 .header__title-logo {
   margin: 0;
-  max-width: 861px;
   align-self: center;
   position: absolute;
   top: 50%;
@@ -57,7 +57,7 @@
     margin: 11px 0 0 12px;
   }
 }
-
+/*
 @media screen and (max-width: 960px) {
   .header__main-logo {
     max-width: 740px;
@@ -80,4 +80,4 @@
   .header__main-logo {
     width: 300px;
   }
-}
+} */
