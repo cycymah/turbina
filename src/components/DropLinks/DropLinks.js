@@ -3,7 +3,7 @@ import LinkTab from './LinkTab';
 import LinkHead from './LinkHead';
 import LinkCloseButton from './LinkCloseButton';
 
-import { LINK_TAB_DATA as linkTabData } from '../constants/linkTabData';
+import { LINK_TAB_DATA as linkTabData } from '../../constants/linkTabData';
 
 function DropLinks() {
   const [isOpened, setIsOpened] = React.useState(false);
@@ -27,9 +27,12 @@ function DropLinks() {
   const handleCloseMenu = () => {
     setIsOpened(false);
   };
+  //Переписал фомулу для вычисления позиции при помощи switch-case (теперь более читабельно)
+  //рассчет индивидуальных position для каждого <LinkTab/> дает "красивое выезжание "гармошкой",
+  //а не целым блоком
 
   return (
-    <ul className="dropLinks" >
+    <ul className="droplinks" >
       {viewWidth < 500 &&
         (isOpened ? (
           <LinkCloseButton onClick={handleCloseMenu} />
@@ -39,14 +42,21 @@ function DropLinks() {
 
       {linkTabData.map((item, idx) => {
         let position = 0;
-        if (viewWidth > 1100) {
-          position = idx * 43;
-        } else {
-          position = viewWidth < 500 ? idx * 35 + 30 : 41 * idx;
+        switch (true) {
+          case (viewWidth >= 1100):
+            position = idx * 43;
+            break;
+          case (viewWidth < 1100 && viewWidth >= 500):
+            position = idx * 41;
+            break;
+          case (viewWidth < 500):
+            position = idx * 35 + 30;
+            break;
         }
+
         return (
           <LinkTab
-            key={idx}
+            key={item.url}
             title={item.title}
             pos={position}
             url={item.url}
