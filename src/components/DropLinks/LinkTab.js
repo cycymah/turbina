@@ -1,5 +1,5 @@
 import React from 'react';
-import { COLOR as color } from '../constants/color';
+import { COLOR as color } from '../../constants/color';
 
 function LinkTab({ title, pos, url, isActive }) {
   const [shift, setShift] = React.useState(-60);
@@ -23,8 +23,8 @@ function LinkTab({ title, pos, url, isActive }) {
   };
 
   return (
-    <li className="linkTab" style={cssRules}>
-      <a className="linkTab__link" style={{ color: color }} href={url}>
+    <li className="droplinks__tab" style={cssRules}>
+      <a className="droplinks__link" style={{ color }} href={url}>
         {title}
       </a>
     </li>

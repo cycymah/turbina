@@ -65,6 +65,15 @@ const Player = () => {
   // Открываем лист с песнями
   const handleSongsList = () => setSongListOpen(!isSongListOpen);
 
+  //Переключаем точку проигрывания песни
+  const handleSeekerClick = (evt) => {
+    audioElement.currentTime =
+      ((evt.pageX - evt.target.closest('.player__seeker').getBoundingClientRect().x) *
+        audioElement.duration
+        / evt.target.closest('.player__seeker').getBoundingClientRect().width);
+    onTimeUpdateSongTime();
+  };
+
   return (
     <section
       className="player"
@@ -80,7 +89,12 @@ const Player = () => {
       <button
         onClick={handlePlayCLick}
         type="button"
+<<<<<<< HEAD
         className={buttonPlayStopClasses}></button>
+=======
+        className={`player__play-btn ${isSongPlay ? 'player__play-btn_pause' : 'player__play-btn_play'
+          }`}></button>
+>>>>>>> f137e51a38aba2d65fb0c43dcf89b5db926406ab
 
       {/* Контейнер с плеером */}
       <div
@@ -93,7 +107,7 @@ const Player = () => {
               <span className="player__song-time">{songTime || ''}</span>
             </div>
 
-            <div className="player__seeker">
+            <div className="player__seeker" onClick={handleSeekerClick}>
               <div
                 className="player__seeker-cover"
                 style={{ width: `${styleSeekerCover}%` }}></div>
@@ -116,7 +130,14 @@ const Player = () => {
       {/* Кнопка для выплывания списка песен/текстов */}
       <button
         type="button"
+<<<<<<< HEAD
         className={buttonShowPlaylist}
+=======
+        className={`player__control-btn ${isSongListOpen
+          ? 'player__control-btn_close'
+          : 'player__control-btn_open'
+          }`}
+>>>>>>> f137e51a38aba2d65fb0c43dcf89b5db926406ab
         onClick={handleSongsList}></button>
     </section>
   );

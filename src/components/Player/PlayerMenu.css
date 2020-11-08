@@ -8,8 +8,8 @@
 }
 
 .player__menu_show {
-animation: showBox .4s ease-in-out;
-height: 100px;
+  animation: showBox .4s ease-in-out;
+  height: 100px;
 }
 
 .player__menu_hide {
@@ -61,6 +61,4 @@ height: 100px;
   100% {
     height: 100px;
   }
-};
-
-
+}
