@@ -1,21 +1,19 @@
 import React from 'react';
 import './App.css';
 
-import DropLinks from './DropLinks';
-import Header from './Header';
-import Player from './Player';
-import Main from './Main';
-import Footer from './Footer';
+import Header from './Header/Header';
+// import Player from './Player';
+import Main from './Main/Main';
+import Footer from './Footer/Footer';
 
 function App() {
-  const audioFile = document.querySelector('.player__audio');
   return (
     <div className="page">
-     <DropLinks/>
-      <Header />
-      <Player audioFile={audioFile} />
-      <Main />
-      <Footer />
+      <div className="page__container">
+        <Header />
+        <Main />
+        <Footer />
+      </div>
     </div>
   );
 }

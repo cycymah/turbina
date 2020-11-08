@@ -1,0 +1,15 @@
+.droplinks__close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  opacity: 0;
+  border-radius: 50%;
+  border: solid 2px;
+  transition: transform .8s ease, opacity .8s ease;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

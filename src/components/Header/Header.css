@@ -1,14 +1,13 @@
 .header {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
   min-height: 503px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-direction: column;
 }
 
 .header__content-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -16,7 +15,7 @@
 }
 
 .header__main-logo {
-  max-width: 720pxpx;
+  max-width: 720px;
   width: 100%;
   object-fit: contain;
   object-position: center;
@@ -26,7 +25,7 @@
   display: block;
   width: 50px;
   height: 50px;
-  background: url(../images/logo.svg) no-repeat;
+  background: url(../../images/logo.svg) no-repeat;
   background-position: center;
   background-size: contain;
   cursor: pointer;
@@ -38,23 +37,44 @@
   transition: 0.5s ease-in-out;
   opacity: 0.6;
 }
+
 .header__title-logo {
   margin: 0;
 }
 
-@media screen and (max-width: 900px) {
+.main__container {
+  width: 100%;
+}
+
+@media screen and (max-width: 1100px) {
   .header__logo-link {
     width: 32px;
     height: 32px;
     margin: 11px 0 0 12px;
   }
-}
-@media screen and (max-width: 640px) {
-  .header__main-logo {
-    width: 303px;
-  }
 
+}
+@media screen and (max-width: 800px) {
+  .header {
+    min-height: 1000px;
+  }
+.header__main-logo {
+  max-width: 620px
+}
+}
+
+@media screen and (max-width: 700px) {
+  .header__main-logo {
+    width: 300px;
+    min-height: 192px;
+  }
   .header {
     min-height: 367px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header__main-logo {
+    width: 300px;
   }
 }
