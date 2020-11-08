@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/turbina/static/css/main.1089f336.chunk.css",
-    "main.js": "/turbina/static/js/main.1aa3d6a8.chunk.js",
-    "main.js.map": "/turbina/static/js/main.1aa3d6a8.chunk.js.map",
-    "runtime-main.js": "/turbina/static/js/runtime-main.35fa545a.js",
-    "runtime-main.js.map": "/turbina/static/js/runtime-main.35fa545a.js.map",
-    "static/js/2.808d50b3.chunk.js": "/turbina/static/js/2.808d50b3.chunk.js",
-    "static/js/2.808d50b3.chunk.js.map": "/turbina/static/js/2.808d50b3.chunk.js.map",
-    "static/js/3.3b13519f.chunk.js": "/turbina/static/js/3.3b13519f.chunk.js",
-    "static/js/3.3b13519f.chunk.js.map": "/turbina/static/js/3.3b13519f.chunk.js.map",
+    "main.css": "/turbina/static/css/main.8c75fada.chunk.css",
+    "main.js": "/turbina/static/js/main.5729b556.chunk.js",
+    "main.js.map": "/turbina/static/js/main.5729b556.chunk.js.map",
+    "runtime-main.js": "/turbina/static/js/runtime-main.7709e741.js",
+    "runtime-main.js.map": "/turbina/static/js/runtime-main.7709e741.js.map",
+    "static/js/2.b9258043.chunk.js": "/turbina/static/js/2.b9258043.chunk.js",
+    "static/js/2.b9258043.chunk.js.map": "/turbina/static/js/2.b9258043.chunk.js.map",
+    "static/js/3.72293ea1.chunk.js": "/turbina/static/js/3.72293ea1.chunk.js",
+    "static/js/3.72293ea1.chunk.js.map": "/turbina/static/js/3.72293ea1.chunk.js.map",
     "index.html": "/turbina/index.html",
-    "static/css/main.1089f336.chunk.css.map": "/turbina/static/css/main.1089f336.chunk.css.map",
-    "static/js/2.808d50b3.chunk.js.LICENSE.txt": "/turbina/static/js/2.808d50b3.chunk.js.LICENSE.txt",
+    "static/css/main.8c75fada.chunk.css.map": "/turbina/static/css/main.8c75fada.chunk.css.map",
+    "static/js/2.b9258043.chunk.js.LICENSE.txt": "/turbina/static/js/2.b9258043.chunk.js.LICENSE.txt",
     "static/media/Float.ebac5a64.mp3": "/turbina/static/media/Float.ebac5a64.mp3",
     "static/media/index.css": "/turbina/static/media/Inter-Regular.fc49d131.woff",
     "static/media/Player.css": "/turbina/static/media/play.46d12a81.svg",
@@ -20,9 +20,9 @@
     "static/media/turbina-logo.25c90b90.svg": "/turbina/static/media/turbina-logo.25c90b90.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.35fa545a.js",
-    "static/js/2.808d50b3.chunk.js",
-    "static/css/main.1089f336.chunk.css",
-    "static/js/main.1aa3d6a8.chunk.js"
+    "static/js/runtime-main.7709e741.js",
+    "static/js/2.b9258043.chunk.js",
+    "static/css/main.8c75fada.chunk.css",
+    "static/js/main.5729b556.chunk.js"
   ]
 }
