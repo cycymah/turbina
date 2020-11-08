@@ -19,7 +19,7 @@
     margin: 0 0 110px 0;
 }
 .main__title{
-    font-family: Inter;
+
     font-size: 50px;
     font-style: italic;
     font-weight: normal;
@@ -48,7 +48,6 @@
 
 .main__description{
     max-width: 760px;
-    font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: normal;
