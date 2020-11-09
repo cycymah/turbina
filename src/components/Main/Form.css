@@ -17,7 +17,6 @@
 @media screen and (max-width: 767px) {
   .form {
     margin: 0 20px 80px;
-    align-self: flex-start;
   }
 }
 
