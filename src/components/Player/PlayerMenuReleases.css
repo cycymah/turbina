@@ -5,6 +5,7 @@
 }
 
 .player__release-message {
+  font-family: "Inter", "Arial",sans-serif;
   font-style: italic;
   font-weight: normal;
   font-size: 20px;
