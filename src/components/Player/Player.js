@@ -3,6 +3,8 @@ import useInterval from '@use-it/interval';
 import './Player.css';
 import classNames from 'classnames';
 import PlayerMenu from './PlayerMenu';
+import song from '../../Float.mp3';
+import PlayerClipButton from './PlayerClipButton';
 import { ContextSongsData } from '../../contexts/ContextSongsData';
 
 const Player = () => {
@@ -120,7 +122,7 @@ const Player = () => {
         {/* onTrackChange={handleNewTrack} */}
         <source src={currenSongPlay.src} type={currenSongPlay.type}></source>
       </audio>
-
+      <img className="player__cover" src="" alt=""/>
       {/* кнопка плей/пауза */}
       <button
         onClick={handlePlayCLick}
@@ -147,7 +149,7 @@ const Player = () => {
                 style={{ width: `${styleSeekerCover}%` }}></div>
             </div>
           </div>
-
+          <PlayerClipButton />
           {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
           {isSongListOpen ? (
             <button className="player__switch-btn" onClick={toggleLyricSongs}>
@@ -155,15 +157,13 @@ const Player = () => {
             </button>
           ) : null}
         </div>
-
-        <PlayerMenu
+            <PlayerMenu
           isBoxOpen={isSongListOpen}
           toggleTextSongs={lyricSongsToggle}
           songLyric={currenSongPlay.lyric}
           onClickSongSet={handleSetCurrentSong}
         />
       </div>
-
       {/* Кнопка для выплывания списка песен/текстов */}
       <button
         type="button"
