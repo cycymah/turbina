@@ -1,0 +1,28 @@
+.player__clip{
+    max-width: 94px;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    background: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 30px;
+    margin: 0 0 0 20px;
+    padding: 0;
+  }
+  .player__clip-text{
+    font-family: "Inter", "Arial",sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #000000;
+    margin: 0 auto;
+    margin: 7px 20px 8px 8px;
+  }
+  .player__clip-icon{
+      margin: 11px 0 12px 18px;
+      width: 9px;
+      height: 11px;
+  }

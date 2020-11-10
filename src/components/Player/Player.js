@@ -4,6 +4,7 @@ import './Player.css';
 import classNames from 'classnames';
 import PlayerMenu from './PlayerMenu';
 import song from '../../Float.mp3';
+import PlayerClipButton from './PlayerClipButton';
 
 const Player = () => {
   const [isSongPlay, setSongPlay] = useState(false);
@@ -83,7 +84,7 @@ const Player = () => {
         onTimeUpdate={onTimeUpdateSongTime}>
         <source src={song} type="audio/mp3"></source>
       </audio>
-
+     <img className="player__cover" src="" alt=""/>
       {/* кнопка плей/пауза */}
       <button
         onClick={handlePlayCLick}
@@ -107,6 +108,7 @@ const Player = () => {
                 style={{ width: `${styleSeekerCover}%` }}></div>
             </div>
           </div>
+          <PlayerClipButton />
           {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
           {isSongListOpen ? (
             <button className="player__switch-btn" onClick={toggleLyricSongs}>
