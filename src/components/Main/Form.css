@@ -17,7 +17,6 @@
 @media screen and (max-width: 767px) {
   .form {
     margin: 0 20px 80px;
-    align-self: flex-start;
   }
 }
 
@@ -28,7 +27,7 @@
   border: none;
   border-bottom: 2px solid #000;
   box-sizing: border-box;
-  font-family: inherit;
+  font-family: "Inter", "Arial",sans-serif;
   font-size: 16px;
   line-height: 1.25;
   outline: none;
@@ -86,6 +85,7 @@
 }
 
 .form__save-button {
+  font-family: "Inter", "Arial",sans-serif;
   width: 100%;
   min-height: 60px;
   border: 2px solid #000;
@@ -126,6 +126,7 @@
 }
 
 .form__title {
+  font-family: "Inter", "Arial",sans-serif;
   font-size: 50px;
   line-height: 1.2;
   font-style: italic;
@@ -156,6 +157,7 @@
 }
 
 .form__text {
+  font-family: "Inter", "Arial",sans-serif;
   font-size: 16px;
   line-height: 1.37;
   font-style: normal;
@@ -185,6 +187,7 @@
 }
 
 .form__checkbox-text {
+  font-family: "Inter", "Arial",sans-serif;
   font-size: 16px;
   line-height: 1.37;
 }
