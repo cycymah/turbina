@@ -3,12 +3,9 @@ import useInterval from '@use-it/interval';
 import './Player.css';
 import classNames from 'classnames';
 import PlayerMenu from './PlayerMenu';
-<<<<<<< HEAD
 import song from '../../Float.mp3';
 import PlayerClipButton from './PlayerClipButton';
-=======
 import { ContextSongsData } from '../../contexts/ContextSongsData';
->>>>>>> 41eac52a52ffd40989ed4c3ba7df0cdf831ebe6e
 
 const Player = () => {
   const songsList = useContext(ContextSongsData);
@@ -152,11 +149,7 @@ const Player = () => {
                 style={{ width: `${styleSeekerCover}%` }}></div>
             </div>
           </div>
-<<<<<<< HEAD
           <PlayerClipButton />
-=======
-
->>>>>>> 41eac52a52ffd40989ed4c3ba7df0cdf831ebe6e
           {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
           {isSongListOpen ? (
             <button className="player__switch-btn" onClick={toggleLyricSongs}>
