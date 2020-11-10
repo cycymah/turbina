@@ -10,6 +10,7 @@
   overflow: hidden;
 }
 
+
 @media screen and (max-width: 1054px) {
   .player__lyric-text {
   font-size: 18px;

@@ -1,23 +1,15 @@
 import React from 'react';
 import './PlayerMenuLyric.css';
 
-const PlayerMenuLyric = () => {
-  return (
-    <span className="player__lyric-text">
-      {/* Тут сделаем подключаемые тексты, для этого нужно немного переработать плеер */}
-      Сотни лет, сотни лет и день, и ночь вращается <br />
-      Карусель, карусель Земля,o-о-о-о-о <br />
-      Сотни лет, сотни лет все ветры возвращаются
-      <br />
-      Hа круги, на кругу своя <br />
-      Hо есть на свете (Hо есть на свете) <br />
-      Ветер перемен (Ветер перемен) <br />
-      Он прилетит (Он прилетит) <br />
-      Прогнав ветра измен (Прогнав ветра измен) <br />
-      Развеет он (Мы с…
-      <br />
-    </span>
-  );
+const PlayerMenuLyric = ({ songLyric }) => {
+  // Делаем текс песни с новой строки по ключу \n
+  const currentSong = songLyric.split('\n').map((str, i) => (
+    <p className="player__lyric" key={'iv' + i}>
+      {str}
+    </p>
+  ));
+
+  return <div className="player__lyric-text-box">{currentSong}</div>;
 };
 
 export default PlayerMenuLyric;
