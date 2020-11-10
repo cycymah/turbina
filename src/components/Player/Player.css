@@ -96,7 +96,6 @@
   border-radius: 4px;
   margin: 0 0 30px 15px;
 }
-
 .player__switch-btn:hover {
   transition: 0.4s ease-in-out;
   opacity: 0.6;
@@ -168,8 +167,21 @@
     font-size: 18px;
     line-height: 22px;
   }
+  .player__cover{
+    width: 164px;
+    height: 164px;
+  }
 }
-
+@media screen and (max-width: 1240px){
+  .player__switch-btn{
+    font-size: 13px;
+  } 
+}
+@media screen and (max-width: 910px){
+  .player__switch-btn{
+    font-size: 11px;
+  } 
+}
 @media screen and (max-width: 781px) {
   .player__switch-btn {
     font-size: 15px;
@@ -181,6 +193,7 @@
   .player {
     font-size: 14px;
     line-height: 19px;
+    position: relative;
   }
   .player__control-box {
     flex-direction: column;

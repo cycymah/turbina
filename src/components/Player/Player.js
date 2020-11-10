@@ -84,7 +84,7 @@ const Player = () => {
         onTimeUpdate={onTimeUpdateSongTime}>
         <source src={song} type="audio/mp3"></source>
       </audio>
-     <img className="player__cover" src="" alt=""/>
+      <img className="player__cover" src="" alt=""/>
       {/* кнопка плей/пауза */}
       <button
         onClick={handlePlayCLick}
@@ -116,13 +116,11 @@ const Player = () => {
             </button>
           ) : null}
         </div>
-
-        <PlayerMenu
+            <PlayerMenu
           isBoxOpen={isSongListOpen}
           toggleTextSongs={lyricSongsToggle}
         />
       </div>
-
       {/* Кнопка для выплывания списка песен/текстов */}
       <button
         type="button"

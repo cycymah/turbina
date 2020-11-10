@@ -6,6 +6,11 @@
   padding: 0;
   transition: all .4s ease-in-out;
 }
+@media screen and (max-width: 781px){
+  .player__menu{
+    margin-left: 150px;
+  }
+}
 
 .player__menu_show {
   animation: showBox .4s ease-in-out;

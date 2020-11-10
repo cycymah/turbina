@@ -26,3 +26,9 @@
       width: 9px;
       height: 11px;
   }
+  @media screen and (max-width: 1240px)
+  {
+      .player__clip-text{
+          font-size: 13px;
+      }
+  }
