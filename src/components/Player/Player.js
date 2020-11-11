@@ -1,8 +1,14 @@
-import React, { useState, useEffect, createRef, useContext } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import useInterval from '@use-it/interval';
 import './Player.css';
 import classNames from 'classnames';
 import PlayerMenu from './PlayerMenu';
+<<<<<<< HEAD
+=======
+//import song from '../../Float.mp3';
+import Visualization from '../Visualization/Visualization';
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+>>>>>>> 3d25c888ebfec314fe9120b130a5ad59dcdc234b
 import PlayerClipButton from './PlayerClipButton';
 import { ContextSongsData } from '../../contexts/ContextSongsData';
 
@@ -15,6 +21,8 @@ const Player = () => {
   const [styleSeekerCover, setSeekerCover] = useState('0%');
   const [isSongListOpen, setSongListOpen] = useState(false);
   const [lyricSongsToggle, changeLyricSongs] = useState(false);
+  const [audioCtx, setAudioCtx] = useState(null);
+  const [analyser, setAnalyser] = useState(null);
 
   // Начальное состояние - заглавная песня на странице, первая песня в массиве песен
   const [currenSongPlay, setCurrentSongPlay] = useState({
@@ -41,33 +49,68 @@ const Player = () => {
     }
   );
 
-  let audioElement = createRef();
+  let audioElement = useRef();
+  let audioArray = useRef([]);
+  //при монтировании плеера создаем аудиоконтекст,
+  //создаём источник из audioElement-а
+  //создаем анализатор
+  //подключаем источник - к выходу и к анализатору
+  //записываем контекст в стейт, чтобы иметь возможность обращаться к нему
+  //из обработчика клика "play"
+  useEffect(() => {
+    //console.log(audioElement.current);
+    const ctx = new AudioContext();
+    //const AudioContext = window.AudioContext || window.webkitAudioContext;
+    //setAudioCtx(new AudioContext());
+    const audioSrc = ctx.createMediaElementSource(audioElement.current);
+    const analyser = ctx.createAnalyser();
+    analyser.fftSize = 128;
+
+    audioArray.current = new Uint8Array(analyser.frequencyBinCount);
+    audioSrc
+      .connect(analyser)
+      .connect(ctx.destination);
+
+    //analyser.connect(ctx.destination);
+    setAudioCtx(ctx);
+    setAnalyser(analyser);
+  }, []);
 
   // Работа плей/стоп
   useEffect(() => {
-    isSongPlay ? audioElement.play() : audioElement.pause();
+    console.log(isSongPlay);
+    isSongPlay ? audioElement.current.play() : audioElement.current.pause();
   }, [isSongPlay]);
 
   // Задаем время в стейте
   useInterval(
     () => {
-      setCurrentSongTime(audioElement.currentTime);
+      setCurrentSongTime(audioElement.current.currentTime);
     },
     isSongPlay ? 500 : null
   );
 
+  //получение данных от аудио
+  const getAudioData = () => {
+    analyser.getByteFrequencyData(audioArray.current);
+    //console.log(dataArray);
+  }
+
   // Меняем строку состояния и время в плеере
   const onTimeUpdateSongTime = () => {
     let songDuration =
-      Math.floor((audioElement.duration - currentSongTime) / 60) +
+      Math.floor((audioElement.current.duration - currentSongTime) / 60) +
       ':' +
-      (Math.round((audioElement.duration - currentSongTime) % 60) < 10
+      (Math.round((audioElement.current.duration - currentSongTime) % 60) < 10
         ? 0
         : '') +
-      Math.round((audioElement.duration - currentSongTime) % 60);
-    let seekerCoverLength = (currentSongTime * 100) / audioElement.duration;
+      Math.round((audioElement.current.duration - currentSongTime) % 60);
+    let seekerCoverLength =
+      (currentSongTime * 100) / audioElement.current.duration;
     setSeekerCover(seekerCoverLength);
     setSongTime(songDuration);
+    getAudioData();
+    //console.log(audioArray.current);
   };
 
   // Меняем стейт по щелчку на плей
@@ -81,8 +124,8 @@ const Player = () => {
 
   // Смена трека в источнике audio
   const handleNewTrack = () => {
-    audioElement.pause();
-    audioElement.load();
+    audioElement.current.pause();
+    audioElement.current.load();
     setSongPlay(false);
     setSongTime('');
     setSeekerCover('0%');
@@ -90,10 +133,10 @@ const Player = () => {
 
   //Переключаем точку проигрывания песни
   const handleSeekerClick = (evt) => {
-    audioElement.currentTime =
+    audioElement.current.currentTime =
       ((evt.pageX -
         evt.target.closest('.player__seeker').getBoundingClientRect().x) *
-        audioElement.duration) /
+        audioElement.current.duration) /
       evt.target.closest('.player__seeker').getBoundingClientRect().width;
     onTimeUpdateSongTime();
   };
@@ -113,6 +156,7 @@ const Player = () => {
   };
 
   return (
+<<<<<<< HEAD
     <section className="player">
       <audio
         className="player__audio"
@@ -156,20 +200,82 @@ const Player = () => {
               {lyricSongsToggle ? 'Релизы' : 'Текст песни'}
             </button>
           ) : null}
+=======
+    <>
+      {isSongPlay ? <Visualization arr={audioArray.current} /> : null}
+
+      <section className="player">
+        <audio
+          className="player__audio"
+          ref={audioElement}
+          onTimeUpdate={onTimeUpdateSongTime}>
+          {/* onTrackChange={handleNewTrack} */}
+          <source src={currenSongPlay.src} type={currenSongPlay.type}></source>
+        </audio>
+
+        {isSongListOpen ? (
+          <img className="player__cover" src="" alt="" />
+        ) : null}
+
+        {/* кнопка плей/пауза */}
+        <button
+          onClick={() => {
+            if (audioCtx.state === 'suspended') {
+              audioCtx.resume();
+            }
+            handlePlayCLick();
+          }}
+          type="button"
+          className={buttonPlayStopClasses}></button>
+
+        {/* Контейнер с плеером */}
+        <div
+          className="player__container"
+          style={{ margin: `0 0 ${isSongListOpen ? '30px' : ''} 0` }}>
+          <div className="player__control-box">
+            <div className="player__seeker-info-box">
+              <div className="player__info-box">
+                <p className="player__song-info">
+                  {currenSongPlay.author} feat. {currenSongPlay.originalAuthor}{' '}
+                  - {currenSongPlay.songName}
+                </p>
+                <span className="player__song-time">{songTime || ''}</span>
+              </div>
+
+              <div className="player__seeker" onClick={handleSeekerClick}>
+                <div
+                  className="player__seeker-cover"
+                  style={{ width: `${styleSeekerCover}%` }}></div>
+              </div>
+            </div>
+
+            {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
+            {isSongListOpen ? (
+              <>
+                <PlayerClipButton />
+                <button
+                  className="player__switch-btn"
+                  onClick={toggleLyricSongs}>
+                  {lyricSongsToggle ? 'Релизы' : 'Текст песни'}
+                </button>
+              </>
+            ) : null}
+          </div>
+          <PlayerMenu
+            isBoxOpen={isSongListOpen}
+            toggleTextSongs={lyricSongsToggle}
+            songLyric={currenSongPlay.lyric}
+            onClickSongSet={handleSetCurrentSong}
+          />
+>>>>>>> 3d25c888ebfec314fe9120b130a5ad59dcdc234b
         </div>
-            <PlayerMenu
-          isBoxOpen={isSongListOpen}
-          toggleTextSongs={lyricSongsToggle}
-          songLyric={currenSongPlay.lyric}
-          onClickSongSet={handleSetCurrentSong}
-        />
-      </div>
-      {/* Кнопка для выплывания списка песен/текстов */}
-      <button
-        type="button"
-        className={buttonShowPlaylist}
-        onClick={handleSongsList}></button>
-    </section>
+        {/* Кнопка для выплывания списка песен/текстов */}
+        <button
+          type="button"
+          className={buttonShowPlaylist}
+          onClick={handleSongsList}></button>
+      </section>
+    </>
   );
 };
 export default Player;

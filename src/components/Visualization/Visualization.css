@@ -1,0 +1,16 @@
+.visualization {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto;
+  width: 70vw;
+}
+
+.visualization__tab {
+  background-color: #55a;
+  height: 2vh;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
