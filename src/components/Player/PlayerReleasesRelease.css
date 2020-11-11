@@ -1,4 +1,5 @@
 .player__release-item {
+  font-family: "Inter", "Arial",sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -7,6 +8,7 @@
 }
 
 .player__release-item:hover {
+  font-family: "Inter", "Arial",sans-serif;
   cursor: pointer;
   font-style: italic;
 }

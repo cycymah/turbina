@@ -2,11 +2,12 @@ import React from 'react';
 import './App.css';
 
 import Header from './Header/Header';
-// import Player from './Player';
 import Main from './Main/Main';
 import Footer from './Footer/Footer';
 // import apiRequest from '../utils/api'
 // import { FormContext } from '../contexts/FormContext';
+import { ContextSongsData } from '../contexts/ContextSongsData';
+import songsList from '../constants/songsList';
 
 
 function App() {
@@ -44,12 +45,23 @@ function App() {
     <div className="page">
       <div className="page__container">
         <Header />
-        {/* <FormContext.Provider value={formContext}> */}
+
           <Main />
-        {/* </FormContext.Provider> */}
+
         <Footer />
+
+    <ContextSongsData.Provider value={songsList}>
+      <div className="page">
+        <div className="page__container">
+          <Header />
+            {/* <FormContext.Provider value={formContext}> */}
+          <Main />
+            {/* </FormContext.Provider> */}
+          <Footer />
+        </div>
+
       </div>
-    </div>
+    </ContextSongsData.Provider>
   );
 }
 
