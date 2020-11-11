@@ -3,12 +3,11 @@ import useInterval from '@use-it/interval';
 import './Player.css';
 import classNames from 'classnames';
 import PlayerMenu from './PlayerMenu';
-import song from '../../Float.mp3';
-import PlayerClipButton from './PlayerClipButton';
 import { ContextSongsData } from '../../contexts/ContextSongsData';
 
 const Player = () => {
   const songsList = useContext(ContextSongsData);
+  let audioElement = createRef();
 
   const [isSongPlay, setSongPlay] = useState(false);
   const [songTime, setSongTime] = useState('');
@@ -42,8 +41,6 @@ const Player = () => {
     }
   );
 
-  let audioElement = createRef();
-
   // Работа плей/стоп
   useEffect(() => {
     isSongPlay ? audioElement.play() : audioElement.pause();
@@ -66,6 +63,7 @@ const Player = () => {
         ? 0
         : '') +
       Math.round((audioElement.duration - currentSongTime) % 60);
+    console.log(audioElement.duration);
     let seekerCoverLength = (currentSongTime * 100) / audioElement.duration;
     setSeekerCover(seekerCoverLength);
     setSongTime(songDuration);
@@ -89,7 +87,7 @@ const Player = () => {
     setSeekerCover('0%');
   };
 
-  //Переключаем точку проигрывания песни
+  // Переключаем точку проигрывания песни
   const handleSeekerClick = (evt) => {
     audioElement.currentTime =
       ((evt.pageX -
@@ -116,13 +114,15 @@ const Player = () => {
   return (
     <section className="player">
       <audio
+        // preload="metadata"
+        onLoadedData={console.log(1)}
         className="player__audio"
         ref={(audio) => (audioElement = audio)}
         onTimeUpdate={onTimeUpdateSongTime}>
         {/* onTrackChange={handleNewTrack} */}
         <source src={currenSongPlay.src} type={currenSongPlay.type}></source>
       </audio>
-      <img className="player__cover" src="" alt=""/>
+
       {/* кнопка плей/пауза */}
       <button
         onClick={handlePlayCLick}
@@ -149,7 +149,7 @@ const Player = () => {
                 style={{ width: `${styleSeekerCover}%` }}></div>
             </div>
           </div>
-          <PlayerClipButton />
+
           {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
           {isSongListOpen ? (
             <button className="player__switch-btn" onClick={toggleLyricSongs}>
@@ -157,13 +157,15 @@ const Player = () => {
             </button>
           ) : null}
         </div>
-            <PlayerMenu
+
+        <PlayerMenu
           isBoxOpen={isSongListOpen}
           toggleTextSongs={lyricSongsToggle}
           songLyric={currenSongPlay.lyric}
           onClickSongSet={handleSetCurrentSong}
         />
       </div>
+
       {/* Кнопка для выплывания списка песен/текстов */}
       <button
         type="button"

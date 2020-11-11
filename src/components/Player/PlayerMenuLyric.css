@@ -1,6 +1,5 @@
 
-.player__lyric-text{
-  font-family: "Inter", "Arial",sans-serif;
+.player__lyric-text-box{
   margin: 16px 0 0 0;
   font-style: italic;
   font-weight: 500;
@@ -9,7 +8,9 @@
   color: #FFFFFF;
   overflow: hidden;
 }
-
+.player__lyric {
+  margin:0;
+}
 
 @media screen and (max-width: 1054px) {
   .player__lyric-text {
