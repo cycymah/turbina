@@ -1,9 +1,11 @@
-import React, { useState, useEffect, createRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import useInterval from '@use-it/interval';
 import './Player.css';
 import classNames from 'classnames';
 import PlayerMenu from './PlayerMenu';
 import song from '../../Float.mp3';
+import Visualization from '../Visualization/Visualization';
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
 const Player = () => {
   const [isSongPlay, setSongPlay] = useState(false);
@@ -12,6 +14,9 @@ const Player = () => {
   const [styleSeekerCover, setSeekerCover] = useState('0%');
   const [isSongListOpen, setSongListOpen] = useState(false);
   const [lyricSongsToggle, changeLyricSongs] = useState(false);
+  const [audioCtx, setAudioCtx] = useState(null);
+  const [analyser, setAnalyser] = useState(null);
+
 
   const buttonPlayStopClasses = classNames(
     'player__play-btn',
@@ -27,33 +32,66 @@ const Player = () => {
     }
   );
 
-  let audioElement = createRef();
+  let audioElement = useRef();
+  let audioArray = useRef([]);
+  //при монтировании плеера создаем аудиоконтекст,
+  //создаём источник из audioElement-а
+  //создаем анализатор
+  //подключаем источник - к выходу и к анализатору
+  //записываем контекст в стейт, чтобы иметь возможность обращаться к нему
+  //из обработчика клика "play"
+  useEffect(() => {
+    //console.log(audioElement.current);
+    const ctx = new AudioContext();
+    //const AudioContext = window.AudioContext || window.webkitAudioContext;
+    //setAudioCtx(new AudioContext());
+    const audioSrc = ctx.createMediaElementSource(audioElement.current);
+    const analyser = ctx.createAnalyser();
+    analyser.fftSize = 128;
+    audioSrc
+      .connect(analyser)
+      .connect(ctx.destination);
+    //analyser.connect(ctx.destination);
+    setAudioCtx(ctx);
+    setAnalyser(analyser);
+  }, []);
+
 
   // Работа плей/стоп
   useEffect(() => {
-    isSongPlay ? audioElement.play() : audioElement.pause();
+    console.log(isSongPlay);
+    isSongPlay ? audioElement.current.play() : audioElement.current.pause();
   }, [isSongPlay]);
 
   // Задаем время в стейте
   useInterval(
     () => {
-      setCurrentSongTime(audioElement.currentTime);
+      setCurrentSongTime(audioElement.current.currentTime);
     },
-    isSongPlay ? 500 : null
+    isSongPlay ? 200 : null
   );
 
+  //получение данных от аудио
+  const getAudioData = () => {
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+    analyser.getByteFrequencyData(dataArray);
+    console.log(dataArray);
+    audioArray.current = dataArray;
+  }
   // Меняем строку состояния и время в плеере
   const onTimeUpdateSongTime = () => {
     let songDuration =
-      Math.floor((audioElement.duration - currentSongTime) / 60) +
+      Math.floor((audioElement.current.duration - currentSongTime) / 60) +
       ':' +
-      (Math.round((audioElement.duration - currentSongTime) % 60) < 10
+      (Math.round((audioElement.current.duration - currentSongTime) % 60) < 10
         ? 0
         : '') +
-      Math.round((audioElement.duration - currentSongTime) % 60);
-    let seekerCoverLength = (currentSongTime * 100) / audioElement.duration;
+      Math.round((audioElement.current.duration - currentSongTime) % 60);
+    let seekerCoverLength = (currentSongTime * 100) / audioElement.current.duration;
     setSeekerCover(seekerCoverLength);
     setSongTime(songDuration);
+    getAudioData();
+    console.log(audioArray.current);
   };
 
   // Меняем стейт по щелчку на плей
@@ -67,26 +105,33 @@ const Player = () => {
 
   //Переключаем точку проигрывания песни
   const handleSeekerClick = (evt) => {
-    audioElement.currentTime =
+    audioElement.current.currentTime =
       ((evt.pageX -
         evt.target.closest('.player__seeker').getBoundingClientRect().x) *
-        audioElement.duration) /
+        audioElement.current.duration) /
       evt.target.closest('.player__seeker').getBoundingClientRect().width;
     onTimeUpdateSongTime();
-  };
+  }
 
-  return (
+  return (<>
+    <Visualization arr={audioArray.current} />
     <section className="player">
       <audio
         className="player__audio"
-        ref={(audio) => (audioElement = audio)}
+        ref={audioElement}
         onTimeUpdate={onTimeUpdateSongTime}>
         <source src={song} type="audio/mp3"></source>
       </audio>
 
       {/* кнопка плей/пауза */}
       <button
-        onClick={handlePlayCLick}
+        onClick={() => {
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+          handlePlayCLick();
+        }
+        }
         type="button"
         className={buttonPlayStopClasses}></button>
 
@@ -125,8 +170,11 @@ const Player = () => {
       <button
         type="button"
         className={buttonShowPlaylist}
-        onClick={handleSongsList}></button>
-    </section>
+        onClick={handleSongsList}>
+
+      </button>
+    </section >
+  </>
   );
 };
 export default Player;
