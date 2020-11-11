@@ -1,14 +1,9 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  useContext,
-  createRef,
-} from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import useInterval from '@use-it/interval';
 import './Player.css';
 import classNames from 'classnames';
 import PlayerMenu from './PlayerMenu';
+//import song from '../../Float.mp3';
 import Visualization from '../Visualization/Visualization';
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 import PlayerClipButton from './PlayerClipButton';
@@ -16,8 +11,6 @@ import { ContextSongsData } from '../../contexts/ContextSongsData';
 
 const Player = () => {
   const songsList = useContext(ContextSongsData);
-  let audioElement = createRef();
-  let audioArray = useRef([]);
 
   const [isSongPlay, setSongPlay] = useState(false);
   const [songTime, setSongTime] = useState('');
@@ -35,7 +28,6 @@ const Player = () => {
     songName: songsList[0].songName,
     src: songsList[0].src,
     type: songsList[0].type,
-    clip: '',
     id: songsList[0].id,
     lyric: songsList[0].lyric,
   });
@@ -54,6 +46,8 @@ const Player = () => {
     }
   );
 
+  let audioElement = useRef();
+  let audioArray = useRef([]);
   //при монтировании плеера создаем аудиоконтекст,
   //создаём источник из audioElement-а
   //создаем анализатор
@@ -68,7 +62,10 @@ const Player = () => {
     const audioSrc = ctx.createMediaElementSource(audioElement.current);
     const analyser = ctx.createAnalyser();
     analyser.fftSize = 128;
+
+    audioArray.current = new Uint8Array(analyser.frequencyBinCount);
     audioSrc.connect(analyser).connect(ctx.destination);
+
     //analyser.connect(ctx.destination);
     setAudioCtx(ctx);
     setAnalyser(analyser);
@@ -90,10 +87,8 @@ const Player = () => {
 
   //получение данных от аудио
   const getAudioData = () => {
-    const dataArray = new Uint8Array(analyser.frequencyBinCount);
-    analyser.getByteFrequencyData(dataArray);
-    console.log(dataArray);
-    audioArray.current = dataArray;
+    analyser.getByteFrequencyData(audioArray.current);
+    //console.log(dataArray);
   };
 
   // Меняем строку состояния и время в плеере
@@ -131,7 +126,7 @@ const Player = () => {
     setSeekerCover('0%');
   };
 
-  // Переключаем точку проигрывания песни
+  //Переключаем точку проигрывания песни
   const handleSeekerClick = (evt) => {
     audioElement.current.currentTime =
       ((evt.pageX -
@@ -167,9 +162,9 @@ const Player = () => {
           <source src={currenSongPlay.src} type={currenSongPlay.type}></source>
         </audio>
 
-        {isSongListOpen ? (
-          <img className="player__cover" src="" alt="" />
-        ) : null}
+        {/* {isSongListOpen ? ( */}
+        <img className="player__cover" src="" alt="" />
+        {/* ) : null} */}
 
         {/* кнопка плей/пауза */}
         <button
@@ -202,18 +197,16 @@ const Player = () => {
                   style={{ width: `${styleSeekerCover}%` }}></div>
               </div>
             </div>
-
+            <PlayerClipButton />
             {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
             {isSongListOpen ? (
-              <>
-                <PlayerClipButton clipUrl={currenSongPlay.clip} />
-                <button
-                  className="player__switch-btn"
-                  onClick={toggleLyricSongs}>
-                  {lyricSongsToggle ? 'Релизы' : 'Текст песни'}
-                </button>
-              </>
-            ) : null}
+              // <>
+
+              <button className="player__switch-btn" onClick={toggleLyricSongs}>
+                {lyricSongsToggle ? 'Релизы' : 'Текст песни'}
+              </button>
+            ) : // </>
+            null}
           </div>
           <PlayerMenu
             isBoxOpen={isSongListOpen}
