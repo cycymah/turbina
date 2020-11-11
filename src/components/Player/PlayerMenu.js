@@ -2,21 +2,26 @@ import React from 'react';
 import './PlayerMenu.css';
 import PlayerMenuLyric from './PlayerMenuLyric';
 import PlayerMenuReleases from './PlayerMenuReleases';
-import songsList from '../../constants/songsList';
 
-const PlayerMenu = ({ isBoxOpen, toggleTextSongs }) => {
+const PlayerMenu = ({
+  isBoxOpen,
+  toggleTextSongs,
+  songs,
+  songLyric,
+  onClickSongSet,
+}) => {
   return (
     <div
       className={`player__menu ${
         isBoxOpen ? 'player__menu_show ' : 'player__menu_hide'
       }`}>
-      <h1 className="player__menu-title">
+      <h2 className="player__menu-title">
         {toggleTextSongs ? 'Текст песни:' : 'Релизы:'}
-      </h1>
+      </h2>
       {toggleTextSongs ? (
-        <PlayerMenuLyric />
+        <PlayerMenuLyric songLyric={songLyric} />
       ) : (
-        <PlayerMenuReleases songsList={songsList} />
+        <PlayerMenuReleases songsList={songs} onClickSongSet={onClickSongSet} />
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 .player {
   font-family: "Inter", "Arial",sans-serif;
-  max-width: 1250px;
+  max-width: 1260px;
   width: 100%;
   display: flex;
   color: white;
@@ -13,9 +13,9 @@
 
 /* Кнопка проигрывания музыки */
 .player__play-btn {
-  width: 32px;
-  height: 28px;
-  margin: 0px 20px 0 25px;
+  width: 20px;
+  height: 16px;
+  margin: 5px 20px 0 25px;
   padding: 0;
   border: 0;
   outline: none;
@@ -45,7 +45,7 @@
   width: 25px;
   height: 25px;
   margin-left: 20px;
-  margin-right: 25px;
+  margin-right: 15px;
   outline: none;
   cursor: pointer;
   border: 0;
@@ -78,7 +78,7 @@
   color: white;
   background-color: transparent;
   border-radius: 30px;
-  margin-left: 20px;
+  margin-left: 10px;
   font-style: italic;
   font-weight: normal;
   font-size: 16px;
@@ -89,7 +89,13 @@
   outline: none;
   transition: all .4s ease-in-out;
 }
-
+.player__cover{
+  width: 176px;
+  height: 176px;
+  background: #C4C4C4;
+  border-radius: 4px;
+  margin: 0 0 30px 15px;
+}
 .player__switch-btn:hover {
   transition: 0.4s ease-in-out;
   opacity: 0.6;
@@ -119,6 +125,7 @@
 
 .player__seeker-info-box {
   width: 100%;
+  max-width: 690px;
 }
 
 /* Название текщей песни */
@@ -155,15 +162,26 @@
   height: 100%;
 }
 
-
-
 @media screen and (max-width: 1054px) {
   .player {
     font-size: 18px;
     line-height: 22px;
   }
+  .player__cover{
+    width: 164px;
+    height: 164px;
+  }
 }
-
+@media screen and (max-width: 1240px){
+  .player__switch-btn{
+    font-size: 13px;
+  } 
+}
+@media screen and (max-width: 910px){
+  .player__switch-btn{
+    font-size: 11px;
+  } 
+}
 @media screen and (max-width: 781px) {
   .player__switch-btn {
     font-size: 15px;
@@ -175,6 +193,7 @@
   .player {
     font-size: 14px;
     line-height: 19px;
+    position: relative;
   }
   .player__control-box {
     flex-direction: column;
