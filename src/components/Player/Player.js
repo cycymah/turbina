@@ -63,6 +63,7 @@ const Player = () => {
     const audioSrc = ctx.createMediaElementSource(audioElement.current);
     const analyser = ctx.createAnalyser();
     analyser.fftSize = 128;
+    audioArray.current = new Uint8Array(analyser.frequencyBinCount);
     audioSrc
       .connect(analyser)
       .connect(ctx.destination);
@@ -84,15 +85,13 @@ const Player = () => {
     () => {
       setCurrentSongTime(audioElement.current.currentTime);
     },
-    isSongPlay ? 200 : null
+    isSongPlay ? 500 : null
   );
 
   //получение данных от аудио
   const getAudioData = () => {
-    const dataArray = new Uint8Array(analyser.frequencyBinCount);
-    analyser.getByteFrequencyData(dataArray);
+    analyser.getByteFrequencyData(audioArray.current);
     //console.log(dataArray);
-    audioArray.current = dataArray;
   }
   // Меняем строку состояния и время в плеере
   const onTimeUpdateSongTime = () => {
