@@ -76,6 +76,7 @@ const Player = () => {
   useEffect(() => {
     console.log(isSongPlay);
     isSongPlay ? audioElement.current.play() : audioElement.current.pause();
+
   }, [isSongPlay]);
 
   // Задаем время в стейте
@@ -90,7 +91,7 @@ const Player = () => {
   const getAudioData = () => {
     const dataArray = new Uint8Array(analyser.frequencyBinCount);
     analyser.getByteFrequencyData(dataArray);
-    console.log(dataArray);
+    //console.log(dataArray);
     audioArray.current = dataArray;
   }
   // Меняем строку состояния и время в плеере
@@ -106,7 +107,7 @@ const Player = () => {
     setSeekerCover(seekerCoverLength);
     setSongTime(songDuration);
     getAudioData();
-    console.log(audioArray.current);
+    //console.log(audioArray.current);
   };
 
   // Меняем стейт по щелчку на плей
@@ -153,7 +154,8 @@ const Player = () => {
   };
 
   return (<>
-    <Visualization arr={audioArray.current} />
+    {isSongPlay ? (<Visualization arr={audioArray.current} />) : null}
+
     <section className="player">
       <audio
         className="player__audio"
