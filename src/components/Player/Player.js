@@ -62,7 +62,7 @@ const Player = () => {
     //setAudioCtx(new AudioContext());
     const audioSrc = ctx.createMediaElementSource(audioElement.current);
     const analyser = ctx.createAnalyser();
-    analyser.fftSize = 128;
+    analyser.fftSize = 32;
     audioArray.current = new Uint8Array(analyser.frequencyBinCount);
     audioSrc
       .connect(analyser)
@@ -91,17 +91,18 @@ const Player = () => {
   //получение данных от аудио
   const getAudioData = () => {
     analyser.getByteFrequencyData(audioArray.current);
-    //console.log(dataArray);
+    //console.log(audioArray.current);
   }
   // Меняем строку состояния и время в плеере
   const onTimeUpdateSongTime = () => {
+    const playPoint = audioElement.current.duration - currentSongTime
     let songDuration =
-      Math.floor((audioElement.current.duration - currentSongTime) / 60) +
+      Math.floor((playPoint) / 60) +
       ':' +
-      (Math.round((audioElement.current.duration - currentSongTime) % 60) < 10
+      (Math.round((playPoint) % 60) < 10
         ? 0
         : '') +
-      Math.round((audioElement.current.duration - currentSongTime) % 60);
+      Math.round((playPoint) % 60);
     let seekerCoverLength = (currentSongTime * 100) / audioElement.current.duration;
     setSeekerCover(seekerCoverLength);
     setSongTime(songDuration);
