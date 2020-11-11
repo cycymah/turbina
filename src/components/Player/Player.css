@@ -1,5 +1,6 @@
 .player {
-  font-family: "Inter", "Arial",sans-serif;
+  z-index: 1;
+  font-family: "Inter", "Arial", sans-serif;
   max-width: 1260px;
   width: 100%;
   display: flex;
@@ -12,6 +13,7 @@
 }
 
 /* Кнопка проигрывания музыки */
+
 .player__play-btn {
   width: 20px;
   height: 16px;
@@ -41,6 +43,7 @@
 }
 
 /* Кнопка выезжающего плейлиста/текстов песен */
+
 .player__control-btn {
   width: 25px;
   height: 25px;
@@ -70,8 +73,9 @@
 }
 
 /* Кнопка переключения песен/плейлиста */
+
 .player__switch-btn {
-  font-family: "Inter", "Arial",sans-serif;
+  font-family: "Inter", "Arial", sans-serif;
   width: 135px;
   height: 35px;
   border: 2px solid #FFFFFF;
@@ -89,13 +93,15 @@
   outline: none;
   transition: all .4s ease-in-out;
 }
-.player__cover{
+
+.player__cover {
   width: 176px;
   height: 176px;
   background: #C4C4C4;
   border-radius: 4px;
   margin: 0 0 30px 15px;
 }
+
 .player__switch-btn:hover {
   transition: 0.4s ease-in-out;
   opacity: 0.6;
@@ -106,6 +112,7 @@
 }
 
 /* Контейнер с названием песни, строкой состояния проигрывания и текстом/плейлистом */
+
 .player__container {
   display: flex;
   flex-direction: column;
@@ -117,6 +124,7 @@
 }
 
 /* Бокс для название песни и времени проигрывания */
+
 .player__info-box {
   display: flex;
   justify-content: space-between;
@@ -129,11 +137,13 @@
 }
 
 /* Название текщей песни */
+
 .player__song-info {
   margin: 0;
 }
 
 /* Строка состояния проигрывания */
+
 .player__seeker {
   position: relative;
   overflow: hidden;
@@ -154,6 +164,7 @@
 }
 
 /* Активная строка состояния проигрывания */
+
 .player__seeker-cover {
   position: absolute;
   background: url('../../images/player/line-seek.svg');
@@ -167,21 +178,24 @@
     font-size: 18px;
     line-height: 22px;
   }
-  .player__cover{
+  .player__cover {
     width: 164px;
     height: 164px;
   }
 }
-@media screen and (max-width: 1240px){
-  .player__switch-btn{
+
+@media screen and (max-width: 1240px) {
+  .player__switch-btn {
     font-size: 13px;
-  } 
+  }
 }
-@media screen and (max-width: 910px){
-  .player__switch-btn{
+
+@media screen and (max-width: 910px) {
+  .player__switch-btn {
     font-size: 11px;
-  } 
+  }
 }
+
 @media screen and (max-width: 781px) {
   .player__switch-btn {
     font-size: 15px;
