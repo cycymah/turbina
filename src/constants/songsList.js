@@ -2,6 +2,10 @@ import float from '../audio/Float.mp3';
 import audioslaves from '../audio/AudioslaveLikeAStone.mp3';
 import ratatat from '../audio/RatatatLoudPipes.mp3';
 import twofeet from '../audio/TwoFeetIFeelLike.mp3';
+import floatAlbum from '../images/albumsCover/float.jpeg';
+import audioslavesAlbum from '../images/albumsCover/audioslave.jpg';
+import ratatatAlbum from '../images/albumsCover/ratatat.jpg';
+import twoAlbum from '../images/albumsCover/twoFett.jpg';
 
 const songsList = [
   {
@@ -10,6 +14,8 @@ const songsList = [
     songName: 'Float',
     src: float,
     type: 'audio/mp3',
+    albumsCover: floatAlbum,
+    clip: null,
     id: 432,
     lyric: `Fall into the deep end\n
     Feeling alive while you fight for your life\n
@@ -41,6 +47,8 @@ const songsList = [
     songName: 'Like a stone',
     src: audioslaves,
     type: 'audio/mp3',
+    albumsCover: audioslavesAlbum,
+    clip: null,
     id: 431,
     lyric: `
     On a cobweb afternoon\n
@@ -81,6 +89,8 @@ const songsList = [
     src: ratatat,
     type: 'audio/mp3',
     id: 433,
+    albumsCover: ratatatAlbum,
+    clip: 'https://www.youtube.com/watch?v=AB_4Q4_St2U&ab_channel=Bonnaroo',
     lyric: `
     Yeah, addicted to life, had to pay a heavy-ass price\n
     Sacrifice worth waitin' on the platinum and ice\n
@@ -111,6 +121,8 @@ const songsList = [
     src: twofeet,
     type: 'audio/mp3',
     id: 436,
+    clip: null,
+    albumsCover: twoAlbum,
     lyric: `
       You keep dreaming and dark scheming\n
       Yeah, you do\n
