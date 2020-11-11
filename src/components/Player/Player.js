@@ -3,7 +3,6 @@ import useInterval from '@use-it/interval';
 import './Player.css';
 import classNames from 'classnames';
 import PlayerMenu from './PlayerMenu';
-import song from '../../Float.mp3';
 import PlayerClipButton from './PlayerClipButton';
 import { ContextSongsData } from '../../contexts/ContextSongsData';
 
@@ -122,7 +121,9 @@ const Player = () => {
         {/* onTrackChange={handleNewTrack} */}
         <source src={currenSongPlay.src} type={currenSongPlay.type}></source>
       </audio>
-      <img className="player__cover" src="" alt=""/>
+      {isSongListOpen ? (
+        <img className="player__cover" src="" alt=""/>
+        ) : null}
       {/* кнопка плей/пауза */}
       <button
         onClick={handlePlayCLick}
@@ -134,7 +135,7 @@ const Player = () => {
         className="player__container"
         style={{ margin: `0 0 ${isSongListOpen ? '30px' : ''} 0` }}>
         <div className="player__control-box">
-          <div className="player__seeker-info-box">
+          <div className={isSongListOpen ? 'player__seeker-info-box player__seeker-open' : 'player__seeker-info-box'}>
             <div className="player__info-box">
               <p className="player__song-info">
                 {currenSongPlay.author} feat. {currenSongPlay.originalAuthor} -{' '}
@@ -142,14 +143,13 @@ const Player = () => {
               </p>
               <span className="player__song-time">{songTime || ''}</span>
             </div>
-
             <div className="player__seeker" onClick={handleSeekerClick}>
               <div
                 className="player__seeker-cover"
                 style={{ width: `${styleSeekerCover}%` }}></div>
             </div>
           </div>
-          <PlayerClipButton />
+          {isSongListOpen ? (<PlayerClipButton />) : null}
           {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
           {isSongListOpen ? (
             <button className="player__switch-btn" onClick={toggleLyricSongs}>
