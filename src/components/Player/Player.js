@@ -162,7 +162,7 @@ const Player = () => {
         </audio>
 
         {/* {isSongListOpen ? ( */}
-        <img className="player__cover" src="" alt="" />
+          {isSongListOpen ? (<img className="player__cover" src="" alt="" />) : null}
         {/* ) : null} */}
 
         {/* кнопка плей/пауза */}
@@ -181,7 +181,7 @@ const Player = () => {
           className="player__container"
           style={{ margin: `0 0 ${isSongListOpen ? '30px' : ''} 0` }}>
           <div className="player__control-box">
-            <div className="player__seeker-info-box">
+            <div className={isSongListOpen ? "player__seeker-info-box player__seeker-open" : "player__seeker-info-box"}>
               <div className="player__info-box">
                 <p className="player__song-info">
                   {currenSongPlay.author} feat. {currenSongPlay.originalAuthor}{' '}
@@ -196,7 +196,7 @@ const Player = () => {
                   style={{ width: `${styleSeekerCover}%` }}></div>
               </div>
             </div>
-            <PlayerClipButton />
+            {isSongListOpen ? (<PlayerClipButton />) : null}
             {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
             {isSongListOpen ? (
               // <>
