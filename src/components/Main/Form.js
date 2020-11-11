@@ -2,14 +2,16 @@ import './Form.css';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import cn from 'classnames';
-import { FormContext } from '../../contexts/FormContext';
+// import { FormContext } from '../../contexts/FormContext';
 
 
 function Form() {
   const [formSubmitState, setFormSubmitState] = React.useState(false);
   const [checkboxIsChecked, setCheckboxIsChecked] = React.useState(false);
-  const formContext = React.useContext(FormContext);
+  // const formContext = React.useContext(FormContext);
   const { register, handleSubmit, errors } = useForm({mode: 'onChange'});
+
+  const formContext = {submitRequestState: false, handleSubmit: console.log};
 
   const handleCheckboxClick = () => {
     setCheckboxIsChecked(!checkboxIsChecked);
