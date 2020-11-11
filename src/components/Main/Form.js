@@ -2,10 +2,13 @@ import './Form.css';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import cn from 'classnames';
+import { FormContext } from '../../contexts/FormContext';
 
-function Form({ onUpdateUser, submitRequestConfirmed }) {
+
+function Form() {
   const [formSubmitState, setFormSubmitState] = React.useState(false);
   const [checkboxIsChecked, setCheckboxIsChecked] = React.useState(false);
+  const formContext = React.useContext(FormContext);
   const { register, handleSubmit, errors } = useForm({mode: 'onChange'});
 
   const handleCheckboxClick = () => {
@@ -14,7 +17,7 @@ function Form({ onUpdateUser, submitRequestConfirmed }) {
 
   const onSubmit = data => {
     setFormSubmitState(true);
-    onUpdateUser(data);
+    formContext.handleSubmit(data);
   };
 
   return (
@@ -100,9 +103,10 @@ function Form({ onUpdateUser, submitRequestConfirmed }) {
         className={cn('form__save-button', { "form__save-button_inactive": (errors.name || errors.email || errors.phone || errors.verse || checkboxIsChecked === false) })}
         disabled={(errors.name || errors.email || errors.phone || errors.verse || checkboxIsChecked === false)}
       >
-        {submitRequestConfirmed ? 'Ура, форма отправлена!' : (formSubmitState.state ? 'Отправление...' : 'Отправить форму')}
+        {formContext.submitRequestState ? 'Ура, форма отправлена!' : (formSubmitState ? 'Отправление...' : 'Отправить форму')}
       </button>
-      {submitRequestConfirmed === false && <span className="form__submit-error">Упс, что-то пошло не так и форма не отправилась, попробуйте ещё раз!</span>}
+
+      {formContext.submitRequestState && <span className="form__submit-error">Упс, что-то пошло не так и форма не отправилась, попробуйте ещё раз!</span>}
     </form>
   );
 }
