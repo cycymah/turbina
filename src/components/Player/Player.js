@@ -191,9 +191,9 @@ const Player = () => {
           <div className="player__control-box">
             <div
               className={
-                isSongListOpen
-                  ? 'player__seeker-info-box player__seeker-open'
-                  : 'player__seeker-info-box'
+                isSongListOpen 
+                ? (currenSongPlay.clip ? "player__seeker-info-box player__seeker-open" : "player__seeker-info-box player__seeker-right-indentation") 
+                : "player__seeker-info-box" 
               }>
               <div className="player__info-box">
                 <p className="player__song-info">
