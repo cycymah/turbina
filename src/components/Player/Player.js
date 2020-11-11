@@ -3,9 +3,12 @@ import useInterval from '@use-it/interval';
 import './Player.css';
 import classNames from 'classnames';
 import PlayerMenu from './PlayerMenu';
+<<<<<<< HEAD
+=======
 //import song from '../../Float.mp3';
 import Visualization from '../Visualization/Visualization';
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
+>>>>>>> 3d25c888ebfec314fe9120b130a5ad59dcdc234b
 import PlayerClipButton from './PlayerClipButton';
 import { ContextSongsData } from '../../contexts/ContextSongsData';
 
@@ -153,6 +156,51 @@ const Player = () => {
   };
 
   return (
+<<<<<<< HEAD
+    <section className="player">
+      <audio
+        className="player__audio"
+        ref={(audio) => (audioElement = audio)}
+        onTimeUpdate={onTimeUpdateSongTime}>
+        {/* onTrackChange={handleNewTrack} */}
+        <source src={currenSongPlay.src} type={currenSongPlay.type}></source>
+      </audio>
+      {isSongListOpen ? (
+        <img className="player__cover" src="" alt=""/>
+        ) : null}
+      {/* кнопка плей/пауза */}
+      <button
+        onClick={handlePlayCLick}
+        type="button"
+        className={buttonPlayStopClasses}></button>
+
+      {/* Контейнер с плеером */}
+      <div
+        className="player__container"
+        style={{ margin: `0 0 ${isSongListOpen ? '30px' : ''} 0` }}>
+        <div className="player__control-box">
+          <div className={isSongListOpen ? 'player__seeker-info-box player__seeker-open' : 'player__seeker-info-box'}>
+            <div className="player__info-box">
+              <p className="player__song-info">
+                {currenSongPlay.author} feat. {currenSongPlay.originalAuthor} -{' '}
+                {currenSongPlay.songName}
+              </p>
+              <span className="player__song-time">{songTime || ''}</span>
+            </div>
+            <div className="player__seeker" onClick={handleSeekerClick}>
+              <div
+                className="player__seeker-cover"
+                style={{ width: `${styleSeekerCover}%` }}></div>
+            </div>
+          </div>
+          {isSongListOpen ? (<PlayerClipButton />) : null}
+          {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
+          {isSongListOpen ? (
+            <button className="player__switch-btn" onClick={toggleLyricSongs}>
+              {lyricSongsToggle ? 'Релизы' : 'Текст песни'}
+            </button>
+          ) : null}
+=======
     <>
       {isSongPlay ? <Visualization arr={audioArray.current} /> : null}
 
@@ -219,6 +267,7 @@ const Player = () => {
             songLyric={currenSongPlay.lyric}
             onClickSongSet={handleSetCurrentSong}
           />
+>>>>>>> 3d25c888ebfec314fe9120b130a5ad59dcdc234b
         </div>
         {/* Кнопка для выплывания списка песен/текстов */}
         <button

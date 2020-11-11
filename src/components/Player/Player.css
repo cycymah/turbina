@@ -133,6 +133,8 @@
 
 .player__seeker-info-box {
   width: 100%;
+}
+.player__seeker-open{
   max-width: 690px;
 }
 
