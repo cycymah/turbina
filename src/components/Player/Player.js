@@ -28,8 +28,10 @@ const Player = () => {
     songName: songsList[0].songName,
     src: songsList[0].src,
     type: songsList[0].type,
+    clip: null,
     id: songsList[0].id,
     lyric: songsList[0].lyric,
+    albumsCover: songsList[0].albumsCover,
   });
 
   const buttonPlayStopClasses = classNames(
@@ -74,6 +76,7 @@ const Player = () => {
 
   // Работа плей/стоп
   useEffect(() => {
+    console.log(currenSongPlay.clip);
     isSongPlay ? audioElement.current.play() : audioElement.current.pause();
   }, [isSongPlay]);
 
@@ -103,9 +106,6 @@ const Player = () => {
     setSeekerCover(seekerCoverLength);
     setSongTime(songDuration);
     getAudioData();
-    // };
-
-    //console.log(audioArray.current);
   };
 
   // Меняем стейт по щелчку на плей
@@ -143,7 +143,9 @@ const Player = () => {
       src: song.src,
       type: song.type,
       id: song.id,
+      clip: song.clip,
       lyric: song.lyric,
+      albumsCover: song.albumsCover,
     });
   };
 
@@ -164,7 +166,11 @@ const Player = () => {
         </audio>
 
         {isSongListOpen ? (
-          <img className="player__cover" src="" alt="" />
+          <img
+            className="player__cover"
+            src={currenSongPlay.albumsCover}
+            alt=""
+          />
         ) : null}
 
         {/* кнопка плей/пауза */}
@@ -203,7 +209,10 @@ const Player = () => {
                   style={{ width: `${styleSeekerCover}%` }}></div>
               </div>
             </div>
-            {isSongListOpen ? <PlayerClipButton /> : null}
+
+            {isSongListOpen && currenSongPlay.clip ? (
+              <PlayerClipButton clipUrl={currenSongPlay.clip} />
+            ) : null}
 
             {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
             {isSongListOpen ? (
