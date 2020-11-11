@@ -10,6 +10,7 @@ const songsList = [
     songName: 'Float',
     src: float,
     type: 'audio/mp3',
+    // clip:
     id: 432,
     lyric: `Fall into the deep end\n
     Feeling alive while you fight for your life\n
@@ -81,6 +82,7 @@ const songsList = [
     src: ratatat,
     type: 'audio/mp3',
     id: 433,
+    clip: 'https://www.youtube.com/watch?v=AB_4Q4_St2U&ab_channel=Bonnaroo',
     lyric: `
     Yeah, addicted to life, had to pay a heavy-ass price\n
     Sacrifice worth waitin' on the platinum and ice\n
