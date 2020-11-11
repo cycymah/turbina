@@ -9,7 +9,6 @@ import Footer from './Footer/Footer';
 import { ContextSongsData } from '../contexts/ContextSongsData';
 import songsList from '../constants/songsList';
 
-
 function App() {
   // const [ SubmitRequestConfirmed, setSubmitRequestConfirmed ] = React.useState(false);
   // const [ songsData, setSongsData ] = React.useState({});
@@ -42,24 +41,15 @@ function App() {
   // }
 
   return (
-    <div className="page">
-      <div className="page__container">
-        <Header />
-
-          <Main />
-
-        <Footer />
-
     <ContextSongsData.Provider value={songsList}>
       <div className="page">
         <div className="page__container">
           <Header />
-            {/* <FormContext.Provider value={formContext}> */}
+          {/* <FormContext.Provider value={formContext}> */}
           <Main />
-            {/* </FormContext.Provider> */}
+          {/* </FormContext.Provider> */}
           <Footer />
         </div>
-
       </div>
     </ContextSongsData.Provider>
   );
