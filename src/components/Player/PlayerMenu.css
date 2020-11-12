@@ -5,7 +5,7 @@
   list-style: none;
   padding: 0;
   transition: all .4s ease-in-out;
-
+  z-index: 9999;
 }
 
 .player__menu_show {
@@ -45,13 +45,23 @@
   }
 }
 
-@media screen and (max-width: 767px) {
-  .player__menu {
-    width: 100%;
+@media screen and (max-width: 910px) {
+  .player__menu_show {
+    margin-top: 20px;
   }
+}
+
+@media screen and (max-width: 767px) {
   .player__menu-title {
     font-size: 14px;
     line-height: 19px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .player__menu {
+    margin: 20px auto 0;
+    max-width: 240px;
   }
 }
 
