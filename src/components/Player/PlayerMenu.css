@@ -5,14 +5,13 @@
   list-style: none;
   padding: 0;
   transition: all .4s ease-in-out;
-  margin-top: 30px;
+  z-index: 9999;
 }
-
-
 
 .player__menu_show {
   animation: showBox .4s ease-in-out;
   height: 100px;
+  margin-top: 25px;
 }
 
 .player__menu_hide {
@@ -46,13 +45,27 @@
   }
 }
 
-@media screen and (max-width: 767px) {
-  .player__menu {
-    width: 100%;
+@media screen and (max-width: 910px) {
+  .player__menu_show {
+  margin-top: 20px;
+
   }
+}
+
+@media screen and (max-width: 767px) {
   .player__menu-title {
     font-size: 14px;
     line-height: 19px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .player__menu {
+    margin: 0 auto;
+    max-width: 240px;
+  }
+  .player__menu_show {
+    margin-top: 20px;
   }
 }
 

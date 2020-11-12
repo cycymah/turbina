@@ -14,7 +14,7 @@
     text-decoration: none;
   }
 
-  .player__clip-text{
+  .player__clip-text {
     font-family: "Inter", "Arial",sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -37,3 +37,25 @@
           font-size: 13px;
       }
   }
+  @media screen and (max-width: 767px) {
+    .player__clip {
+      max-width: 74px;
+      margin: 0;
+    }
+    .player__clip-text {
+      margin: 7px 18px 8px 5px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    .player__clip-icon {
+      margin: 11px 0 11px 14px;
+      width: 9px;
+      height: 11px;
+    }
+  }
+
+  @media screen and (max-width: 490px) {
+
+  }
+

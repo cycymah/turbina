@@ -5,17 +5,18 @@
   width: 100%;
   color: white;
   display: grid;
-  grid-template-columns: 176px 60px 1fr 60px;
-  grid-template-rows: 40px 1fr;
+  grid-template-columns: min-content 60px 1fr 55px;
+  grid-template-rows: min-content min-content;
   grid-template-areas:
     "album control-box control-box control-box"
     "album . relise-box .";
-  /* gap: 30px 27px; */
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   transition: margin .4s;
+  margin-bottom: 20px;
+  z-index: 200;
 }
 
 /* Кнопка проигрывания музыки */
@@ -23,7 +24,7 @@
 .player__play-btn {
   width: 20px;
   height: 16px;
-  margin: 5px 20px 0 0;
+  margin: 5px 20px 0 27px;
   padding: 0;
   border: 0;
   outline: none;
@@ -34,6 +35,10 @@
 .player__play-btn:hover {
   transition: 0.5s ease-in-out;
   opacity: 0.6;
+}
+.player__control-wrapper {
+  display: flex;
+  width: 100%;
 }
 
 .player__play-btn_play {
@@ -106,8 +111,8 @@
   height: 176px;
   background: #C4C4C4;
   border-radius: 4px;
-  margin: 0 0 30px 15px;
   object-fit: cover;
+  margin-left: 15px;
 }
 
 .player__switch-btn:hover {
@@ -115,11 +120,8 @@
   opacity: 0.6;
 }
 
-.player__switch-transition {
-  transition: all 0.4s ease-in-out;
-}
 .player__functional-btn-box {
-  display: flex;
+    display: flex;
 }
 
 /* Контейнер с названием песни, строкой состояния проигрывания и текстом/плейлистом */
@@ -186,6 +188,13 @@
   height: 100%;
 }
 
+
+@media screen and (max-width: 1240px) {
+  .player__switch-btn {
+    font-size: 13px;
+  }
+}
+
 @media screen and (max-width: 1054px) {
   .player {
     font-size: 18px;
@@ -198,46 +207,80 @@
   }
 }
 
-@media screen and (max-width: 1240px) {
-  .player__switch-btn {
-    font-size: 13px;
-  }
-}
-
 @media screen and (max-width: 910px) {
+  .player {
+    grid-template-areas:
+    "control-box control-box control-box control-box"
+    "album . relise-box .";
+    grid-template-columns: min-content 30px 1fr 55px;
+  }
+
+  .player__cover {
+    margin-left: 55px;
+    margin-top: 15px;
+    width: 112px;
+    height: 112px;
+  }
+
   .player__switch-btn {
     font-size: 11px;
-  }
-}
-
-@media screen and (max-width: 781px) {
-  .player__switch-btn {
     font-size: 15px;
     line-height: 18px;
+    width: 125px;
   }
 }
 
-@media screen and (max-width: 760px) {
+
+@media screen and (max-width: 767px) {
   .player {
     font-size: 14px;
     line-height: 19px;
-    position: relative;
+    grid-template-columns: min-content 25px 1fr 50px;
   }
-  .player__control-box {
-    flex-direction: column;
+  .player__cover {
+    margin-left: 40px;
   }
+
+  .player__functional-btn-box {
+    width: 100%;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
   .player__switch-btn {
-    margin: 21px 0 0 0;
+    margin-left: 5px;
     width: 100%;
   }
+
   .player__play-btn {
     width: 16px;
     height: 13px;
     margin: 5px 12px 0 15px;
   }
+
   .player__control-btn {
     margin: 0 15px 0 11px;
     width: 16px;
     height: 16px;
+  }
+
+  .player__control-wrapper {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .player {
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-areas:
+    "control-box control-box control-box control-box"
+    "album album album album"
+    "relise-box relise-box relise-box relise-box";
+  }
+
+  .player__cover {
+    height: 240px;
+    width: 240px;
+    margin: 15px auto 0;
   }
 }

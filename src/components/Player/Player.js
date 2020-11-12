@@ -8,14 +8,14 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
 import PlayerClipButton from './PlayerClipButton';
 import { ContextSongsData } from '../../contexts/ContextSongsData';
 
-const Player = () => {
+const Player = ({ isSongListOpen, handleSongsList }) => {
   const songsList = useContext(ContextSongsData);
 
   const [isSongPlay, setSongPlay] = useState(false);
   const [songTime, setSongTime] = useState('');
   const [currentSongTime, setCurrentSongTime] = useState(0);
   const [styleSeekerCover, setSeekerCover] = useState('0%');
-  const [isSongListOpen, setSongListOpen] = useState(false);
+
   const [lyricSongsToggle, changeLyricSongs] = useState(false);
   const [audioCtx, setAudioCtx] = useState(null);
   const [analyser, setAnalyser] = useState(null);
@@ -112,9 +112,6 @@ const Player = () => {
   // Меняем блок релизов на песни
   const toggleLyricSongs = () => changeLyricSongs(!lyricSongsToggle);
 
-  // Открываем лист с песнями
-  const handleSongsList = () => setSongListOpen(!isSongListOpen);
-
   // Смена трека в источнике audio
   const handleNewTrack = () => {
     setSongPlay(false);
@@ -173,9 +170,7 @@ const Player = () => {
         ) : null}
 
         {/* кнопка плей/пауза */}
-        <div
-          className="player__container"
-          style={{ margin: `0 0 ${isSongListOpen ? '30px' : ''} 0` }}>
+        <div className="player__container">
           {/* Контейнер с плеером */}
 
           <button
@@ -187,39 +182,44 @@ const Player = () => {
             }}
             type="button"
             className={buttonPlayStopClasses}></button>
-          <div
-            className={
-              isSongListOpen
-                ? currenSongPlay.clip
-                  ? 'player__seeker-info-box player__seeker-open'
-                  : 'player__seeker-info-box player__seeker-right-indentation'
-                : 'player__seeker-info-box'
-            }>
-            <div className="player__info-box">
-              <p className="player__song-info">
-                {currenSongPlay.author} feat. {currenSongPlay.originalAuthor} -{' '}
-                {currenSongPlay.songName}
-              </p>
-              <span className="player__song-time">{songTime || ''}</span>
+          <div className="player__control-wrapper">
+            <div
+              className={
+                isSongListOpen
+                  ? currenSongPlay.clip
+                    ? 'player__seeker-info-box player__seeker-open'
+                    : 'player__seeker-info-box player__seeker-right-indentation'
+                  : 'player__seeker-info-box'
+              }>
+              <div className="player__info-box">
+                <p className="player__song-info">
+                  {currenSongPlay.author} feat. {currenSongPlay.originalAuthor}{' '}
+                  - {currenSongPlay.songName}
+                </p>
+                <span className="player__song-time">{songTime || ''}</span>
+              </div>
+
+              <div className="player__seeker" onClick={handleSeekerClick}>
+                <div
+                  className="player__seeker-cover"
+                  style={{ width: `${styleSeekerCover}%` }}></div>
+              </div>
             </div>
 
-            <div className="player__seeker" onClick={handleSeekerClick}>
-              <div
-                className="player__seeker-cover"
-                style={{ width: `${styleSeekerCover}%` }}></div>
-            </div>
-          </div>
-          <div className="player__functional-btn-box">
-            {isSongListOpen && currenSongPlay.clip ? (
-              <PlayerClipButton clipUrl={currenSongPlay.clip} />
-            ) : null}
+            <div className="player__functional-btn-box">
+              {isSongListOpen && currenSongPlay.clip ? (
+                <PlayerClipButton clipUrl={currenSongPlay.clip} />
+              ) : null}
 
-            {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
-            {isSongListOpen ? (
-              <button className="player__switch-btn" onClick={toggleLyricSongs}>
-                {lyricSongsToggle ? 'Релизы' : 'Текст песни'}
-              </button>
-            ) : null}
+              {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
+              {isSongListOpen ? (
+                <button
+                  className="player__switch-btn"
+                  onClick={toggleLyricSongs}>
+                  {lyricSongsToggle ? 'Релизы' : 'Текст песни'}
+                </button>
+              ) : null}
+            </div>
           </div>
           <button
             type="button"

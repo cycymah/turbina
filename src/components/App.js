@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import Header from './Header/Header';
@@ -13,6 +13,10 @@ function App() {
   // const [ SubmitRequestConfirmed, setSubmitRequestConfirmed ] = React.useState(false);
   // const [ songsData, setSongsData ] = React.useState({});
   // const [ userData, setUserData ] = React.useState({});
+  const [isSongListOpen, setSongListOpen] = useState(false);
+
+  // Открываем лист с песнями
+  const handleSongsList = () => setSongListOpen(!isSongListOpen);
 
   // создаём переменную для хранения и передачи контектста в Form
   // const formContext = {submitRequestState: SubmitRequestConfirmed, handleSubmit: handleUpdateUser};
@@ -44,7 +48,10 @@ function App() {
     <ContextSongsData.Provider value={songsList}>
       <div className="page">
         <div className="page__container">
-          <Header />
+          <Header
+            isSongListOpen={isSongListOpen}
+            handleSongsList={handleSongsList}
+          />
           {/* <FormContext.Provider value={formContext}> */}
           <Main />
           {/* </FormContext.Provider> */}
