@@ -16,6 +16,7 @@
   font-size: 20px;
   line-height: 24px;
   transition: margin .4s;
+  margin-bottom: 20px;
 }
 
 /* Кнопка проигрывания музыки */
@@ -23,7 +24,7 @@
 .player__play-btn {
   width: 20px;
   height: 16px;
-  margin: 5px 20px 0 0;
+  margin: 5px 20px 0 27px;
   padding: 0;
   border: 0;
   outline: none;
@@ -106,8 +107,8 @@
   height: 176px;
   background: #C4C4C4;
   border-radius: 4px;
-  margin: 0 0 30px 15px;
   object-fit: cover;
+  margin-left: 15px;
 }
 
 .player__switch-btn:hover {

@@ -21,6 +21,13 @@ const Player = () => {
   const [analyser, setAnalyser] = useState(null);
   const [durationTime, setDurationTime] = useState(0);
 
+  const templateAreas = {
+    open: `"album control-box control-box control-box"
+  "album . relise-box ."`,
+    close: `"control-box control-box control-box control-box"
+  "album . relise-box ."`,
+  };
+
   // Начальное состояние - заглавная песня на странице, первая песня в массиве песен
   const [currenSongPlay, setCurrentSongPlay] = useState({
     author: songsList[0].author,
@@ -152,7 +159,13 @@ const Player = () => {
     <>
       {isSongPlay ? <Visualization arr={audioArray.current} /> : null}
 
-      <section className="player">
+      <section
+        className="player"
+        style={{
+          gridTemplateAreas: `${
+            isSongListOpen ? templateAreas.open : templateAreas.close
+          }`,
+        }}>
         <audio
           className="player__audio"
           ref={audioElement}
@@ -173,11 +186,8 @@ const Player = () => {
         ) : null}
 
         {/* кнопка плей/пауза */}
-        <div
-          className="player__container"
-          style={{ margin: `0 0 ${isSongListOpen ? '30px' : ''} 0` }}>
+        <div className="player__container">
           {/* Контейнер с плеером */}
-
           <button
             onClick={() => {
               if (audioCtx.state === 'suspended') {

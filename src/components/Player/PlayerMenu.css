@@ -5,14 +5,13 @@
   list-style: none;
   padding: 0;
   transition: all .4s ease-in-out;
-  margin-top: 30px;
+
 }
-
-
 
 .player__menu_show {
   animation: showBox .4s ease-in-out;
   height: 100px;
+  margin-top: 25px;
 }
 
 .player__menu_hide {
