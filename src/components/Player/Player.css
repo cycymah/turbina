@@ -1,3 +1,12 @@
+@keyframes move {
+  from {
+    transform: translate(100vw);
+  }
+  to {
+    transform: translate(-100vw);
+  }
+}
+
 .player {
   z-index: 1;
   font-family: "Inter", "Arial", sans-serif;
@@ -7,9 +16,7 @@
   display: grid;
   grid-template-columns: min-content 60px 1fr 55px;
   grid-template-rows: min-content min-content;
-  grid-template-areas:
-    "album control-box control-box control-box"
-    "album . relise-box .";
+  grid-template-areas: "album control-box control-box control-box" "album . relise-box .";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -36,6 +43,7 @@
   transition: 0.5s ease-in-out;
   opacity: 0.6;
 }
+
 .player__control-wrapper {
   display: flex;
   width: 100%;
@@ -121,7 +129,7 @@
 }
 
 .player__functional-btn-box {
-    display: flex;
+  display: flex;
 }
 
 /* Контейнер с названием песни, строкой состояния проигрывания и текстом/плейлистом */
@@ -140,21 +148,34 @@
 /* Бокс для название песни и времени проигрывания */
 
 .player__info-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr auto;
 }
 
 .player__seeker-info-box {
   width: 100%;
 }
-.player__seeker-open{
+
+.player__seeker-open {
   max-width: 690px;
 }
 
 /* Название текщей песни */
+
 .player__song-info {
+  white-space: nowrap;
   margin: 0;
+}
+
+.player__song-info_moving {
+  animation: move 13s infinite linear;
+}
+
+/* добавлен контейнер, чтобы бегущая строка не залезала на время.*/
+
+.player__moving-string-container {
+  margin-right: 5px;
+  overflow: hidden;
 }
 
 /* Строка состояния проигрывания */
@@ -188,7 +209,6 @@
   height: 100%;
 }
 
-
 @media screen and (max-width: 1240px) {
   .player__switch-btn {
     font-size: 13px;
@@ -199,7 +219,6 @@
   .player {
     font-size: 18px;
     line-height: 22px;
-
   }
   .player__cover {
     width: 164px;
@@ -209,19 +228,15 @@
 
 @media screen and (max-width: 910px) {
   .player {
-    grid-template-areas:
-    "control-box control-box control-box control-box"
-    "album . relise-box .";
+    grid-template-areas: "control-box control-box control-box control-box" "album . relise-box .";
     grid-template-columns: min-content 30px 1fr 55px;
   }
-
   .player__cover {
     margin-left: 55px;
     margin-top: 15px;
     width: 112px;
     height: 112px;
   }
-
   .player__switch-btn {
     font-size: 11px;
     font-size: 15px;
@@ -229,7 +244,6 @@
     width: 125px;
   }
 }
-
 
 @media screen and (max-width: 767px) {
   .player {
@@ -240,30 +254,25 @@
   .player__cover {
     margin-left: 40px;
   }
-
   .player__functional-btn-box {
     width: 100%;
     justify-content: space-between;
     align-items: baseline;
   }
-
   .player__switch-btn {
     margin-left: 5px;
     width: 100%;
   }
-
   .player__play-btn {
     width: 16px;
     height: 13px;
     margin: 5px 12px 0 15px;
   }
-
   .player__control-btn {
     margin: 0 15px 0 11px;
     width: 16px;
     height: 16px;
   }
-
   .player__control-wrapper {
     flex-direction: column;
   }
@@ -272,12 +281,8 @@
 @media screen and (max-width: 490px) {
   .player {
     grid-template-rows: min-content 1fr min-content;
-    grid-template-areas:
-    "control-box control-box control-box control-box"
-    "album album album album"
-    "relise-box relise-box relise-box relise-box";
+    grid-template-areas: "control-box control-box control-box control-box" "album album album album" "relise-box relise-box relise-box relise-box";
   }
-
   .player__cover {
     height: 240px;
     width: 240px;
