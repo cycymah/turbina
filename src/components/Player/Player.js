@@ -76,7 +76,6 @@ const Player = () => {
 
   // Работа плей/стоп
   useEffect(() => {
-    console.log(currenSongPlay.clip);
     isSongPlay ? audioElement.current.play() : audioElement.current.pause();
   }, [isSongPlay]);
 
@@ -136,6 +135,7 @@ const Player = () => {
   // Функция выбора песни из списка
   const handleSetCurrentSong = (song) => {
     handleNewTrack();
+    setSeekerCover('0');
     setCurrentSongPlay({
       author: song.author,
       originalAuthor: song.originalAuthor,
