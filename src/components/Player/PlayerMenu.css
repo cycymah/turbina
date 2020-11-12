@@ -47,7 +47,8 @@
 
 @media screen and (max-width: 910px) {
   .player__menu_show {
-    margin-top: 20px;
+  margin-top: 20px;
+
   }
 }
 
@@ -60,8 +61,11 @@
 
 @media screen and (max-width: 490px) {
   .player__menu {
-    margin: 20px auto 0;
+    margin: 0 auto;
     max-width: 240px;
+  }
+  .player__menu_show {
+    margin-top: 20px;
   }
 }
 

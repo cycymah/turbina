@@ -8,14 +8,14 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
 import PlayerClipButton from './PlayerClipButton';
 import { ContextSongsData } from '../../contexts/ContextSongsData';
 
-const Player = () => {
+const Player = ({ isSongListOpen, handleSongsList }) => {
   const songsList = useContext(ContextSongsData);
 
   const [isSongPlay, setSongPlay] = useState(false);
   const [songTime, setSongTime] = useState('');
   const [currentSongTime, setCurrentSongTime] = useState(0);
   const [styleSeekerCover, setSeekerCover] = useState('0%');
-  const [isSongListOpen, setSongListOpen] = useState(false);
+
   const [lyricSongsToggle, changeLyricSongs] = useState(false);
   const [audioCtx, setAudioCtx] = useState(null);
   const [analyser, setAnalyser] = useState(null);
@@ -111,9 +111,6 @@ const Player = () => {
   const handlePlayCLick = () => setSongPlay(!isSongPlay);
   // Меняем блок релизов на песни
   const toggleLyricSongs = () => changeLyricSongs(!lyricSongsToggle);
-
-  // Открываем лист с песнями
-  const handleSongsList = () => setSongListOpen(!isSongListOpen);
 
   // Смена трека в источнике audio
   const handleNewTrack = () => {

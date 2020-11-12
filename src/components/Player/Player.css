@@ -16,6 +16,7 @@
   line-height: 24px;
   transition: margin .4s;
   margin-bottom: 20px;
+  z-index: 200;
 }
 
 /* Кнопка проигрывания музыки */
@@ -243,7 +244,6 @@
   .player__functional-btn-box {
     width: 100%;
     justify-content: space-between;
-    margin-top: 20px;
     align-items: baseline;
   }
 
