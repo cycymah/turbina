@@ -47,6 +47,12 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
       'player__control-btn_close': isSongListOpen,
     }
   );
+  const playerSongInfoClasses = classNames(
+    'player__song-info',
+    {
+      'player__song-info_moving': isSongPlay,
+    }
+  )
 
   let audioElement = useRef();
   let audioArray = useRef([]);
@@ -192,10 +198,12 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
                   : 'player__seeker-info-box'
               }>
               <div className="player__info-box">
-                <p className="player__song-info">
-                  {currenSongPlay.author} feat. {currenSongPlay.originalAuthor}{' '}
+                <div className="player__moving-string-container">
+                  <p className={playerSongInfoClasses}>
+                    {currenSongPlay.author} feat. {currenSongPlay.originalAuthor}{' '}
                   - {currenSongPlay.songName}
-                </p>
+                  </p>
+                </div>
                 <span className="player__song-time">{songTime || ''}</span>
               </div>
 

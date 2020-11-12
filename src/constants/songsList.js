@@ -9,7 +9,7 @@ import twoAlbum from '../images/albumsCover/twoFett.jpg';
 
 const songsList = [
   {
-    author: 'Call Me Karizma',
+    author: 'Call Me Karizma ',
     originalAuthor: 'Иван',
     songName: 'Float',
     src: float,
