@@ -64,8 +64,7 @@ const Player = () => {
     //setAudioCtx(new AudioContext());
     const audioSrc = ctx.createMediaElementSource(audioElement.current);
     const analyser = ctx.createAnalyser();
-    analyser.fftSize = 128;
-
+    analyser.fftSize = 32;
     audioArray.current = new Uint8Array(analyser.frequencyBinCount);
     audioSrc.connect(analyser).connect(ctx.destination);
 
@@ -90,6 +89,7 @@ const Player = () => {
   //получение данных от аудио
   const getAudioData = () => {
     analyser.getByteFrequencyData(audioArray.current);
+
   };
 
   // Меняем строку состояния и время в плеере
@@ -102,6 +102,7 @@ const Player = () => {
       Math.round(playPoint % 60);
     let seekerCoverLength =
       (currentSongTime * 100) / audioElement.current.duration;
+
     setSeekerCover(seekerCoverLength);
     setSongTime(songDuration);
     getAudioData();
@@ -191,9 +192,9 @@ const Player = () => {
           <div className="player__control-box">
             <div
               className={
-                isSongListOpen
-                  ? 'player__seeker-info-box player__seeker-open'
-                  : 'player__seeker-info-box'
+                isSongListOpen 
+                ? (currenSongPlay.clip ? "player__seeker-info-box player__seeker-open" : "player__seeker-info-box player__seeker-right-indentation") 
+                : "player__seeker-info-box" 
               }>
               <div className="player__info-box">
                 <p className="player__song-info">

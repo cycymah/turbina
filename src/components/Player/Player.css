@@ -137,6 +137,10 @@
 .player__seeker-open{
   max-width: 690px;
 }
+.player__seeker-right-indentation {
+  margin-right: 10px;
+  max-width: 794px;
+}
 
 /* Название текщей песни */
 

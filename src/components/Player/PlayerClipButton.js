@@ -3,7 +3,6 @@ import './PlayerClipButton.css';
 import logo from '../../images/player/arrow.png';
 
 const PlayerClipButton = ({ clipUrl }) => {
-  console.log(clipUrl);
   return (
     // eslint-disable-next-line react/jsx-no-target-blank
     <a className="player__clip" href={clipUrl} target="_blank">
