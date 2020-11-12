@@ -1,16 +1,14 @@
 .player__menu {
+  grid-area: relise-box;
   width: 100%;
   overflow-y: scroll;
   list-style: none;
-  margin-top: 20px;
   padding: 0;
   transition: all .4s ease-in-out;
+  margin-top: 30px;
 }
-@media screen and (max-width: 781px){
-  .player__menu{
-    margin-left: 150px;
-  }
-}
+
+
 
 .player__menu_show {
   animation: showBox .4s ease-in-out;
@@ -50,7 +48,6 @@
 
 @media screen and (max-width: 767px) {
   .player__menu {
-    margin-top: 30px;
     width: 100%;
   }
   .player__menu-title {

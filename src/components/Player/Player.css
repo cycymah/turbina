@@ -3,8 +3,14 @@
   font-family: "Inter", "Arial", sans-serif;
   max-width: 1260px;
   width: 100%;
-  display: flex;
   color: white;
+  display: grid;
+  grid-template-columns: 176px 60px 1fr 60px;
+  grid-template-rows: 40px 1fr;
+  grid-template-areas:
+    "album control-box control-box control-box"
+    "album . relise-box .";
+  /* gap: 30px 27px; */
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -17,7 +23,7 @@
 .player__play-btn {
   width: 20px;
   height: 16px;
-  margin: 5px 20px 0 25px;
+  margin: 5px 20px 0 0;
   padding: 0;
   border: 0;
   outline: none;
@@ -95,11 +101,13 @@
 }
 
 .player__cover {
+  grid-area: album;
   width: 176px;
   height: 176px;
   background: #C4C4C4;
   border-radius: 4px;
   margin: 0 0 30px 15px;
+  object-fit: cover;
 }
 
 .player__switch-btn:hover {
@@ -110,12 +118,16 @@
 .player__switch-transition {
   transition: all 0.4s ease-in-out;
 }
+.player__functional-btn-box {
+  display: flex;
+}
 
 /* Контейнер с названием песни, строкой состояния проигрывания и текстом/плейлистом */
 
 .player__container {
+  grid-area: control-box;
   display: flex;
-  flex-direction: column;
+  grid-template-columns: 164px 30px 1fr 30px;
   width: 100%;
 }
 
@@ -137,13 +149,8 @@
 .player__seeker-open{
   max-width: 690px;
 }
-.player__seeker-right-indentation {
-  margin-right: 10px;
-  max-width: 794px;
-}
 
 /* Название текщей песни */
-
 .player__song-info {
   margin: 0;
 }
@@ -183,6 +190,7 @@
   .player {
     font-size: 18px;
     line-height: 22px;
+
   }
   .player__cover {
     width: 164px;
