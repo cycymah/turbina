@@ -170,40 +170,42 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
         ) : null}
 
         {/* кнопка плей/пауза */}
-        <div className="player__container">
+
           {/* Контейнер с плеером */}
+          <div className="player__container">
+            <button
+              onClick={() => {
+                if (audioCtx.state === 'suspended') {
+                  audioCtx.resume();
+                }
+                handlePlayCLick();
+              }}
+              type="button"
+              className={buttonPlayStopClasses}></button>
+            <div className="player__control-wrapper">
+              <div
+                className={
+                  isSongListOpen
+                    ? currenSongPlay.clip
+                      ? 'player__seeker-info-box player__seeker-open'
+                      : 'player__seeker-info-box player__seeker-right-indentation'
+                    : 'player__seeker-info-box'
+                }>
+                <div className="player__info-box">
+                  <p className="player__song-info">
+                    {currenSongPlay.author} feat. {currenSongPlay.originalAuthor}{' '}
+                    - {currenSongPlay.songName}
+                  </p>
+                  <span className="player__song-time">{songTime || ''}</span>
+                </div>
 
-          <button
-            onClick={() => {
-              if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-              }
-              handlePlayCLick();
-            }}
-            type="button"
-            className={buttonPlayStopClasses}></button>
-          <div className="player__control-wrapper">
-            <div
-              className={
-                isSongListOpen
-                  ? currenSongPlay.clip
-                    ? 'player__seeker-info-box player__seeker-open'
-                    : 'player__seeker-info-box player__seeker-right-indentation'
-                  : 'player__seeker-info-box'
-              }>
-              <div className="player__info-box">
-                <p className="player__song-info">
-                  {currenSongPlay.author} feat. {currenSongPlay.originalAuthor}{' '}
-                  - {currenSongPlay.songName}
-                </p>
-                <span className="player__song-time">{songTime || ''}</span>
+                <div className="player__seeker" onClick={handleSeekerClick}>
+                  <div
+                    className="player__seeker-cover"
+                    style={{ width: `${styleSeekerCover}%` }}></div>
+                </div>
               </div>
-
-              <div className="player__seeker" onClick={handleSeekerClick}>
-                <div
-                  className="player__seeker-cover"
-                  style={{ width: `${styleSeekerCover}%` }}></div>
-              </div>
+            </div>
             </div>
 
             <div className="player__functional-btn-box">
@@ -220,12 +222,12 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
                 </button>
               ) : null}
             </div>
-          </div>
-          <button
+            <button
             type="button"
             className={buttonShowPlaylist}
-            onClick={handleSongsList}></button>
-        </div>
+            onClick={handleSongsList}>
+          </button>
+     
 
         <PlayerMenu
           isBoxOpen={isSongListOpen}
