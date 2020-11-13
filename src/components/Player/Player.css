@@ -271,8 +271,11 @@
   }
   .player__functional-btn-box {
     width: 100%;
+    margin: 0 auto;
+    max-width: 300px;
     justify-content: space-between;
     align-items: baseline;
+    margin-top: 10px;
   }
 
   .player__play-btn {
@@ -315,7 +318,9 @@
     margin: 20px auto 0;
   }
   .player__functional-btn-box{
+    margin: 0 auto;
     margin-bottom: 10px;
     margin-top: 10px;
+    max-width: 250px;
   }
 }
