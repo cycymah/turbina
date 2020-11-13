@@ -213,7 +213,9 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
           </div>
         </div>
 
-        <div className="player__functional-btn-box">
+        <div
+          className="player__functional-btn-box"
+          style={{ margin: `${isSongListOpen ? '20px' : ''} 0 0 0` }}>
           {isSongListOpen && currenSongPlay.clip ? (
             <PlayerClipButton clipUrl={currenSongPlay.clip} />
           ) : null}
