@@ -5,7 +5,7 @@ import LinkCloseButton from './LinkCloseButton';
 
 import { LINK_TAB_DATA as linkTabData } from '../../constants/linkTabData';
 
-function DropLinks({ isSongListOpen, windowsWidth }) {
+function DropLinks({ blurStyles }) {
   const [isOpened, setIsOpened] = React.useState(false);
   const [viewWidth, setViewWidth] = React.useState(window.innerWidth);
 
@@ -32,13 +32,7 @@ function DropLinks({ isSongListOpen, windowsWidth }) {
   //а не целым блоком
 
   return (
-    <ul
-      className="droplinks"
-      style={{
-        filter: `${
-          windowsWidth <= 490 && isSongListOpen ? 'blur(4px)' : 'blur(0)'
-        }`,
-      }}>
+    <ul className="droplinks" style={blurStyles}>
       {viewWidth < 500 &&
         (isOpened ? (
           <LinkCloseButton onClick={handleCloseMenu} />
