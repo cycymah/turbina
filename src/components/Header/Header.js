@@ -18,7 +18,7 @@ const Header = ({ isSongListOpen, handleSongsList }) => {
 
   // Записываем ширину окна
   const windowsSentWidth = () => {
-    setWindowsWidth(innerWidth);
+    setWindowsWidth(window.innerWidth);
   };
 
   // Получаем ширину окна

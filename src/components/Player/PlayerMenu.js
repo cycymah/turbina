@@ -2,6 +2,7 @@ import React from 'react';
 import './PlayerMenu.css';
 import PlayerMenuLyric from './PlayerMenuLyric';
 import PlayerMenuReleases from './PlayerMenuReleases';
+import classNames from 'classnames';
 
 const PlayerMenu = ({
   isBoxOpen,
@@ -10,11 +11,18 @@ const PlayerMenu = ({
   songLyric,
   onClickSongSet,
 }) => {
+  const menuShow = classNames(
+    'player__menu',
+    {
+      player__menu_show: isBoxOpen,
+    },
+    {
+      player__menu_hide: !isBoxOpen,
+    }
+  );
+
   return (
-    <div
-      className={`player__menu ${
-        isBoxOpen ? 'player__menu_show ' : 'player__menu_hide'
-      }`}>
+    <div className={menuShow}>
       <h2 className="player__menu-title">
         {toggleTextSongs ? 'Текст песни:' : 'Релизы:'}
       </h2>
