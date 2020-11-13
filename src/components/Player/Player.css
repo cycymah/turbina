@@ -31,7 +31,6 @@
 
 
 /* Кнопка проигрывания музыки */
-
 .player__play-btn {
   width: 20px;
   height: 16px;
@@ -66,7 +65,6 @@
 }
 
 /* Кнопка выезжающего плейлиста/текстов песен */
-
 .player__control-btn {
   width: 25px;
   height: 25px;
@@ -97,7 +95,6 @@
 }
 
 /* Кнопка переключения песен/плейлиста */
-
 .player__switch-btn {
   font-family: "Inter", "Arial", sans-serif;
   width: 135px;
@@ -166,8 +163,6 @@
 
 /* Название текщей песни */
 .player__song-info {
-  width: auto;
-  display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -180,14 +175,12 @@
 }
 
 /* добавлен контейнер, чтобы бегущая строка не залезала на время.*/
-
 .player__moving-string-container {
   margin-right: 5px;
   overflow: hidden;
 }
 
 /* Строка состояния проигрывания */
-
 .player__seeker {
   position: relative;
   overflow: hidden;
@@ -208,7 +201,6 @@
 }
 
 /* Активная строка состояния проигрывания */
-
 .player__seeker-cover {
   position: absolute;
   background: url('../../images/player/line-seek.svg');
