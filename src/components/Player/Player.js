@@ -47,6 +47,12 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
       'player__control-btn_close': isSongListOpen,
     }
   );
+  const playerSongInfoClasses = classNames(
+    'player__song-info',
+    {
+      'player__song-info_moving': isSongPlay,
+    }
+  )
 
   let audioElement = useRef();
   let audioArray = useRef([]);
@@ -169,35 +175,37 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
           />
         ) : null}
 
-        {/* кнопка плей/пауза */}
-
           {/* Контейнер с плеером */}
-          <div className="player__container">
-            <button
-              onClick={() => {
-                if (audioCtx.state === 'suspended') {
-                  audioCtx.resume();
-                }
-                handlePlayCLick();
-              }}
-              type="button"
-              className={buttonPlayStopClasses}></button>
-            <div className="player__control-wrapper">
-              <div
-                className={
-                  isSongListOpen
-                    ? currenSongPlay.clip
-                      ? 'player__seeker-info-box player__seeker-open'
-                      : 'player__seeker-info-box player__seeker-right-indentation'
-                    : 'player__seeker-info-box'
-                }>
-                <div className="player__info-box">
-                  <p className="player__song-info">
+        <div className="player__container">
+
+        {/* кнопка плей/пауза */}
+          <button
+            onClick={() => {
+              if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+              }
+              handlePlayCLick();
+            }}
+            type="button"
+            className={buttonPlayStopClasses}></button>
+          <div className="player__control-wrapper">
+            <div
+              className={
+                isSongListOpen
+                  ? currenSongPlay.clip
+                    ? 'player__seeker-info-box player__seeker-open'
+                    : 'player__seeker-info-box player__seeker-right-indentation'
+                  : 'player__seeker-info-box'
+              }>
+              <div className="player__info-box">
+                <div className="player__moving-string-container">
+                  <p className={playerSongInfoClasses}>
                     {currenSongPlay.author} feat. {currenSongPlay.originalAuthor}{' '}
-                    - {currenSongPlay.songName}
+                  - {currenSongPlay.songName}
                   </p>
-                  <span className="player__song-time">{songTime || ''}</span>
                 </div>
+                <span className="player__song-time">{songTime || ''}</span>
+              </div>
 
                 <div className="player__seeker" onClick={handleSeekerClick}>
                   <div
