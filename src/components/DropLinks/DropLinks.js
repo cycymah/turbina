@@ -5,7 +5,7 @@ import LinkCloseButton from './LinkCloseButton';
 
 import { LINK_TAB_DATA as linkTabData } from '../../constants/linkTabData';
 
-function DropLinks() {
+function DropLinks({ blurStyles }) {
   const [isOpened, setIsOpened] = React.useState(false);
   const [viewWidth, setViewWidth] = React.useState(window.innerWidth);
 
@@ -32,24 +32,24 @@ function DropLinks() {
   //а не целым блоком
 
   return (
-    <ul className="droplinks" >
+    <ul className="droplinks" style={blurStyles}>
       {viewWidth < 500 &&
         (isOpened ? (
           <LinkCloseButton onClick={handleCloseMenu} />
         ) : (
-            <LinkHead title="Стриминги" onClick={handleOpenMenu} />
-          ))}
+          <LinkHead title="Стриминги" onClick={handleOpenMenu} />
+        ))}
 
       {linkTabData.map((item, idx) => {
         let position = 0;
         switch (true) {
-          case (viewWidth >= 1100):
+          case viewWidth >= 1100:
             position = idx * 43;
             break;
-          case (viewWidth < 1100 && viewWidth >= 500):
+          case viewWidth < 1100 && viewWidth >= 500:
             position = idx * 41;
             break;
-          case (viewWidth < 500):
+          case viewWidth < 500:
             position = idx * 35 + 30;
             break;
         }

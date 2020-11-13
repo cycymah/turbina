@@ -12,6 +12,12 @@
     cursor: pointer;
     outline: none;
     text-decoration: none;
+    transition: 0.5s ease-in-out;
+  }
+
+  .player__clip:hover {
+    transition: 0.5s ease-in-out;
+    opacity: 0.6;
   }
 
   .player__clip-text {
@@ -40,7 +46,7 @@
   @media screen and (max-width: 767px) {
     .player__clip {
       max-width: 74px;
-      margin: 0;
+      margin: 10px 0 0 10px;
     }
     .player__clip-text {
       margin: 7px 18px 8px 5px;
@@ -55,7 +61,4 @@
     }
   }
 
-  @media screen and (max-width: 490px) {
-
-  }
 
