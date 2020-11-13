@@ -15,7 +15,6 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
   const [songTime, setSongTime] = useState('');
   const [currentSongTime, setCurrentSongTime] = useState(0);
   const [styleSeekerCover, setSeekerCover] = useState('0%');
-
   const [lyricSongsToggle, changeLyricSongs] = useState(false);
   const [audioCtx, setAudioCtx] = useState(null);
   const [analyser, setAnalyser] = useState(null);
@@ -164,7 +163,7 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
           }}>
           <source src={currenSongPlay.src} type={currenSongPlay.type}></source>
         </audio>
-        {/* <div className="player__main-container"> */}
+        {/* Блок с обложкой альбома */}
         {isSongListOpen ? (
           <img
             className="player__cover"
@@ -212,7 +211,7 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
             </div>
           </div>
         </div>
-
+        {/* Блок с кнопками клипа и текстов/релизов */}
         <div className="player__functional-btn-box">
           {isSongListOpen && currenSongPlay.clip ? (
             <PlayerClipButton clipUrl={currenSongPlay.clip} />
@@ -229,15 +228,13 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
           type="button"
           className={buttonShowPlaylist}
           onClick={handleSongsList}></button>
-
+        {/* Блок с текстами/релизами */}
         <PlayerMenu
           isBoxOpen={isSongListOpen}
           toggleTextSongs={lyricSongsToggle}
           songLyric={currenSongPlay.lyric}
           onClickSongSet={handleSetCurrentSong}
         />
-
-        {/* Кнопка для выплывания списка песен/текстов */}
       </section>
     </>
   );

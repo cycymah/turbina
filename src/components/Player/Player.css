@@ -140,7 +140,6 @@
 }
 
 /* Контейнер с названием песни, строкой состояния проигрывания и текстом/плейлистом */
-
 .player__container {
   grid-area: control-box;
   display: flex;
@@ -152,7 +151,6 @@
 }
 
 /* Бокс для название песни и времени проигрывания */
-
 .player__info-box {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -167,11 +165,13 @@
 }
 
 /* Название текщей песни */
-
 .player__song-info {
+  text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
   margin: 0;
 }
+
 
 .player__song-info_moving {
   animation: move 13s infinite linear;

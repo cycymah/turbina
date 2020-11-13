@@ -25,7 +25,7 @@ const Header = ({ isSongListOpen, handleSongsList }) => {
   useEffect(() => {
     window.addEventListener('resize', windowsSentWidth);
     // return window.removeEventListener('resize', windowsSentWidth);
-  });
+  }, []);
 
   return (
     <header className="header" style={{ height: heigthNeeded }}>
