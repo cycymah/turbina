@@ -175,10 +175,10 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
           />
         ) : null}
 
-        {/* кнопка плей/пауза */}
-        <div className="player__container">
           {/* Контейнер с плеером */}
+        <div className="player__container">
 
+        {/* кнопка плей/пауза */}
           <button
             onClick={() => {
               if (audioCtx.state === 'suspended') {
@@ -207,11 +207,13 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
                 <span className="player__song-time">{songTime || ''}</span>
               </div>
 
-              <div className="player__seeker" onClick={handleSeekerClick}>
-                <div
-                  className="player__seeker-cover"
-                  style={{ width: `${styleSeekerCover}%` }}></div>
+                <div className="player__seeker" onClick={handleSeekerClick}>
+                  <div
+                    className="player__seeker-cover"
+                    style={{ width: `${styleSeekerCover}%` }}></div>
+                </div>
               </div>
+            </div>
             </div>
 
             <div className="player__functional-btn-box">
@@ -228,12 +230,12 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
                 </button>
               ) : null}
             </div>
-          </div>
-          <button
+            <button
             type="button"
             className={buttonShowPlaylist}
-            onClick={handleSongsList}></button>
-        </div>
+            onClick={handleSongsList}>
+          </button>
+     
 
         <PlayerMenu
           isBoxOpen={isSongListOpen}
