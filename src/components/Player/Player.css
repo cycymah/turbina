@@ -304,11 +304,7 @@
     "album album album album"
     "buttonButton buttonButton buttonButton buttonButton"
     "relise-box relise-box relise-box relise-box";
-    margin-bottom: 20px;
-  }
-
-  .player_otstup{
-    color: red;
+    margin-bottom: 0;
   }
 
   .player__cover {
