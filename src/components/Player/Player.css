@@ -16,6 +16,7 @@
   display: grid;
   grid-template-columns: min-content 60px 1fr auto 55px;
   grid-template-rows: min-content min-content;
+  grid-template-areas:
     "album control-box control-box buttonButton player__control-btn"
     "album . relise-box relise-box .";
 
@@ -271,7 +272,7 @@
     justify-content: space-between;
     align-items: baseline;
   }
-  
+
   .player__play-btn {
     width: 16px;
     height: 13px;
