@@ -1,9 +1,9 @@
 @keyframes move {
   from {
-    transform: translate(100vw);
+    transform: translate(90vw);
   }
   to {
-    transform: translate(-100vw);
+    transform: translate(-100%);
   }
 }
 
@@ -166,6 +166,8 @@
 
 /* Название текщей песни */
 .player__song-info {
+  width: auto;
+  display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
