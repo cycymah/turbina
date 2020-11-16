@@ -15,10 +15,8 @@ const PlayerMenu = ({
     'player__menu',
     {
       player__menu_show: isBoxOpen,
-    },
-    {
       player__menu_hide: !isBoxOpen,
-    }
+    },
   );
 
   return (

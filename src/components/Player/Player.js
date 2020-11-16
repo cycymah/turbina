@@ -170,7 +170,8 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
                     ? 'player__seeker-info-box player__seeker-open'
                     : 'player__seeker-info-box player__seeker-right-indentation'
                   : 'player__seeker-info-box'
-              }>
+              }
+              >
               <div className="player__info-box">
                 <div className="player__moving-string-container">
                   <p className={playerSongInfoClasses}>

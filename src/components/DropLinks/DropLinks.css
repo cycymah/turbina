@@ -1,5 +1,5 @@
 .droplinks {
-  font-family: "Inter", "Arial",sans-serif;
+  font-family: "Inter", "Helvetica", "Arial",sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -19,7 +19,7 @@
 @media(max-width:1100px) {
   .droplinks {
     font-size: 15px;
-    line-height: 2.0;
+    line-height: 2;
   }
 }
 
