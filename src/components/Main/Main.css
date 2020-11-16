@@ -2,7 +2,7 @@
     width: 100%;
     max-width: 1260px;
     min-width: 310px;
-    background: #FFFFFF;
+    background: #FFF;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,10 +58,16 @@
     padding: 0;
     color: #000000;
 }
-
-.main__description:nth-child(3){
-    margin-top: 25px;
+.main__text-margin {
+    margin-bottom: 14px;
 }
+.main__text-margin:last-child{
+    margin-bottom: 0px;
+}
+
+/* .main__description:nth-child(3){
+    margin-top: 25px;
+} */
 .main__text_margin_indent{
     margin-top: 30px;
     padding: 0;
