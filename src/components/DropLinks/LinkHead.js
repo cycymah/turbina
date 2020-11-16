@@ -10,7 +10,7 @@ function LinkHead({ title, onClick }) {
   }, [])
   return (
     <li className="droplinks__title"
-      style={{ opacity: isVisible, borderColor: color, color: color }}
+      style={{ opacity: isVisible, borderColor: color, color }}
       onClick={onClick}>
       {title}
     </li>
