@@ -31,7 +31,6 @@ function Form() {
         name="name"
         type="text"
         className={cn('form__input', { "form__input_type_error":  errors.name })}
-        defaultValue=""
         ref={register({
           required: {value: true, message: 'Заполните это поле'},
           minLength: {value: 5, message: 'Текст должен содержать не менее 5 симв.'},
@@ -48,7 +47,6 @@ function Form() {
         name="email"
         type="email"
         className={cn('form__input', { "form__input_type_error":  errors.email })}
-        defaultValue=""
         ref={register({
           required: {value: true, message: 'Заполните это поле'},
           minLength: {value: 5, message: 'Текст должен содержать не менее 5 симв.'},
@@ -65,7 +63,6 @@ function Form() {
         name="phone"
         type="tel"
         className={cn('form__input', { "form__input_type_error":  errors.phone })}
-        defaultValue=""
         ref={register({
           required: {value: true, message: 'Заполните это поле'},
           minLength: {value: 6, message: 'Номер должен содержать не менее 6 симв.'},
@@ -82,7 +79,6 @@ function Form() {
         name="verse"
         type="text"
         className={cn('form__input', { "form__input_type_error":  errors.verse })}
-        defaultValue=""
         ref={register({
           required: {value: true, message: 'Заполните это поле'},
           minLength: {value: 20, message: 'Текст должен содержать не менее 20 симв.'},
