@@ -164,13 +164,10 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
           />
           <div className="player__control-wrapper">
             <div
-              className={
-                isSongListOpen
-                  ? currenSongPlay.clip
-                    ? 'player__seeker-info-box player__seeker-open'
-                    : 'player__seeker-info-box player__seeker-right-indentation'
-                  : 'player__seeker-info-box'
-              }
+              className={classNames('player__seeker-info-box', {
+                'player__seeker-open': currenSongPlay.clip,
+                'player__seeker-right-indentation': !currenSongPlay.clip
+              })}
               >
               <div className="player__info-box">
                 <div className="player__moving-string-container">

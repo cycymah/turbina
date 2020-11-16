@@ -9,8 +9,7 @@ const Main = () => {
       <section className="main__container-text">
         <h2 className="main__title">О ПРОЕКТЕ.</h2>
         <ul className="main__list">
-          <li className="main__text">
-            <p className="main__description">
+          <li className="main__text main__description">
               Мы знаем, что наши дети постоянно существуют в режиме
               непрекращающегося творческого процесса. Мы видим это, когда
               ребёнок что-то напевает, когда он бесконечно рисует, когда
@@ -19,10 +18,8 @@ const Main = () => {
               недооценивают это спонтанное творчество ребёнка. Это не плохо,
               просто мы привыкаем к этому. Давайте попробуем внимательнее
               присмотреться к нашим детям.
-            </p>
           </li>
-          <li className="main__text main__text_margin_indent">
-            <p className="main__description">
+          <li className="main__text main__text_margin_indent main__description">
               Мы запускаем проект «ТУРБИНА», который открывает работу настоящего
               музыкального лейбла на базе «Маршака». В рамках «ТУРБИНЫ» лучшие
               современные инди-музыканты пишут свои песни на стихи, написанные
@@ -34,7 +31,6 @@ const Main = () => {
               взрослостью и детством, где спонтанное детское творчество и
               бессознательное, замеченное родителем, становится общественным
               культурным достоянием.
-            </p>
           </li>
         </ul>
         <h2 className="main__title">КАК ЭТО РАБОТАЕТ?</h2>
@@ -48,29 +44,21 @@ const Main = () => {
         </p>
         <h2 className="main__title">ТЕЗИСЫ.</h2>
         <ul className="main__list">
-          <li className="main__text">
-            <p className="main__description">
-              &mdash; Дети никогда не прекращают творить и круто стараться быть
-              на них похожими в этом
-            </p>
+          <li className="main__text main__description main__text-margin">
+            &bull; Дети никогда не прекращают творить и круто стараться быть
+            на них похожими в этом
           </li>
-          <li className="main__text">
-            <p className="main__description">
-              &mdash; Детское бессознательное помогает родителям понять, что
-              происходит внутри семьи
-            </p>
+          <li className="main__text main__description main__text-margin">
+            &bull; Детское бессознательное помогает родителям понять, что
+            происходит внутри семьи
           </li>
-          <li className="main__text">
-            <p className="main__description">
-              &mdash; Не существует детской и взрослой поэзии. Существует мысль
-              и чувство, зафиксированное в ней
-            </p>
+          <li className="main__text main__description main__text-margin">
+            &bull; Не существует детской и взрослой поэзии. Существует мысль
+            и чувство, зафиксированное в ней
           </li>
-          <li className="main__text">
-            <p className="main__description">
-              &mdash; Дети получают невероятное удовольствие и мотивацию от
-              того, что их творчество востребовано сверстниками и взрослыми.
-            </p>
+          <li className="main__text main__description main__text-margin">
+            &bull; Дети получают невероятное удовольствие и мотивацию от
+            того, что их творчество востребовано сверстниками и взрослыми.
           </li>
         </ul>
       </section>
