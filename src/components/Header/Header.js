@@ -11,9 +11,7 @@ const Header = ({ isSongListOpen, handleSongsList }) => {
   const [windowsWidth, setWindowsWidth] = useState(window.innerWidth);
   // Стили для блюра
   let blurStyles = {
-    filter: `${
-      windowsWidth <= 490 && isSongListOpen ? 'blur(4px)' : 'blur(0)'
-    }`,
+    filter: windowsWidth <= 490 && isSongListOpen ? 'blur(4px)' : 'blur(0)',
   };
 
   // Записываем ширину окна
@@ -24,8 +22,8 @@ const Header = ({ isSongListOpen, handleSongsList }) => {
   // Получаем ширину окна
   useEffect(() => {
     window.addEventListener('resize', windowsSentWidth);
-    // return window.removeEventListener('resize', windowsSentWidth);
-  }, []);
+    return window.removeEventListener('resize', windowsSentWidth);
+  });
 
   return (
     <header className="header" style={{ height: heigthNeeded }}>

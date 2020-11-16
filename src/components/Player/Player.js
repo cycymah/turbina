@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import useInterval from '@use-it/interval';
 import './Player.css';
-import classNames from 'classnames';
 import PlayerMenu from './PlayerMenu';
-import Visualization from '../Visualization/Visualization';
-window.AudioContext = window.AudioContext || window.webkitAudioContext;
 import PlayerClipButton from './PlayerClipButton';
+import Visualization from '../Visualization/Visualization';
 import { ContextSongsData } from '../../contexts/ContextSongsData';
+import classNames from 'classnames';
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
 const Player = ({ isSongListOpen, handleSongsList }) => {
   const songsList = useContext(ContextSongsData);
@@ -21,17 +21,7 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
   const [durationTime, setDurationTime] = useState(0);
 
   // Начальное состояние - заглавная песня на странице, первая песня в массиве песен
-  const [currenSongPlay, setCurrentSongPlay] = useState({
-    author: songsList[0].author,
-    originalAuthor: songsList[0].originalAuthor,
-    songName: songsList[0].songName,
-    src: songsList[0].src,
-    type: songsList[0].type,
-    clip: null,
-    id: songsList[0].id,
-    lyric: songsList[0].lyric,
-    albumsCover: songsList[0].albumsCover,
-  });
+  const [currenSongPlay, setCurrentSongPlay] = useState(songsList[0]);
 
   const buttonPlayStopClasses = classNames(
     'player__play-btn',
@@ -82,12 +72,9 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
   }, [isSongPlay]);
 
   // Задаем время в стейте
-  useInterval(
-    () => {
-      setCurrentSongTime(audioElement.current.currentTime);
-    },
-    isSongPlay ? 500 : null
-  );
+  useInterval(() => {
+    setCurrentSongTime(audioElement.current.currentTime);
+  }, isSongPlay && 500);
 
   //получение данных от аудио
   const getAudioData = () => {
@@ -135,17 +122,7 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
   const handleSetCurrentSong = (song) => {
     handleNewTrack();
     setSeekerCover('0');
-    setCurrentSongPlay({
-      author: song.author,
-      originalAuthor: song.originalAuthor,
-      songName: song.songName,
-      src: song.src,
-      type: song.type,
-      id: song.id,
-      clip: song.clip,
-      lyric: song.lyric,
-      albumsCover: song.albumsCover,
-    });
+    setCurrentSongPlay(song);
   };
 
   return (
@@ -164,13 +141,13 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
           <source src={currenSongPlay.src} type={currenSongPlay.type}></source>
         </audio>
         {/* Блок с обложкой альбома */}
-        {isSongListOpen ? (
+        {isSongListOpen && (
           <img
             className="player__cover"
             src={currenSongPlay.albumsCover}
             alt="Обложка альбома"
           />
-        ) : null}
+        )}
 
         {/* Контейнер с плеером */}
         <div className="player__container">
@@ -183,7 +160,8 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
               handlePlayCLick();
             }}
             type="button"
-            className={buttonPlayStopClasses}></button>
+            className={buttonPlayStopClasses}
+          />
           <div className="player__control-wrapper">
             <div
               className={
@@ -196,7 +174,7 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
               <div className="player__info-box">
                 <div className="player__moving-string-container">
                   <p className={playerSongInfoClasses}>
-                    {currenSongPlay.author} feat.{' '}
+                    {currenSongPlay.author} <em>feat.</em>{' '}
                     {currenSongPlay.originalAuthor} - {currenSongPlay.songName}
                   </p>
                 </div>
@@ -213,16 +191,16 @@ const Player = ({ isSongListOpen, handleSongsList }) => {
         </div>
         {/* Блок с кнопками клипа и текстов/релизов */}
         <div className="player__functional-btn-box">
-          {isSongListOpen && currenSongPlay.clip ? (
+          {isSongListOpen && currenSongPlay.clip && (
             <PlayerClipButton clipUrl={currenSongPlay.clip} />
-          ) : null}
+          )}
 
           {/* Условный рентеринг кнопки для смены текста/списка песен внутри бокса */}
-          {isSongListOpen ? (
+          {isSongListOpen && (
             <button className="player__switch-btn" onClick={toggleLyricSongs}>
               {lyricSongsToggle ? 'Релизы' : 'Текст песни'}
             </button>
-          ) : null}
+          )}
         </div>
         <button
           type="button"
