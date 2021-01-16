@@ -1,0 +1,9 @@
+/* Шрифты Inter */
+
+@import url('./vendors/fonts.css');
+@import url('./vendors/normalize.css');
+@import url('./components/DropLinks/DropLinks.css');
+@import url('./components/DropLinks/LinkTab.css');
+@import url('./components/DropLinks/LinkHead.css');
+@import url('./components/DropLinks/LinkCloseButton.css');
+@import url('./components/Visualization/Visualization.css');

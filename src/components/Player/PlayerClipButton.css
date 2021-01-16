@@ -1,0 +1,64 @@
+.player__clip {
+    max-width: 94px;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    background: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 30px;
+    margin: 0 0 0 20px;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+  }
+
+  .player__clip:hover {
+    transition: 0.5s ease-in-out;
+    opacity: 0.6;
+  }
+
+  .player__clip-text {
+    font-family: "Inter", "Arial",sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #000000;
+    margin: 0 auto;
+    margin: 7px 20px 8px 8px;
+  }
+
+  .player__clip-icon{
+      margin: 11px 0 12px 18px;
+      width: 9px;
+      height: 11px;
+  }
+
+  @media screen and (max-width: 1240px) {
+      .player__clip-text{
+          font-size: 13px;
+      }
+  }
+  @media screen and (max-width: 767px) {
+    .player__clip {
+      max-width: 74px;
+      margin: 10px 0 0 10px;
+    }
+    .player__clip-text {
+      margin: 7px 18px 8px 5px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    .player__clip-icon {
+      margin: 11px 0 11px 14px;
+      width: 9px;
+      height: 11px;
+    }
+  }
+
+

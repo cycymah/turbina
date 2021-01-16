@@ -1,0 +1,23 @@
+
+.player__lyric-text-box{
+  font-family: "Inter", "Arial",sans-serif;
+  margin: 16px 0 0 0;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.player__lyric {
+  margin: 0;
+}
+
+
+@media screen and (max-width: 1054px) {
+  .player__lyric-text {
+  font-size: 18px;
+  line-height: 22px;
+  }
+}
